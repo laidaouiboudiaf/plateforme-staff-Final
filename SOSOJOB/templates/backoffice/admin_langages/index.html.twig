@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<title>InfosLangages index</title>
+
+{% block body %}
+    <h1>InfosLangages index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NomLangage</th>
+                <th>Niveau</th>
+                <th>IdLangages</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infos_langage in infos_langages %}
+            <tr>
+                <td>{{ infos_langage.nomLangage }}</td>
+                <td>{{ infos_langage.niveau }}</td>
+                <td>{{ infos_langage.idLangages }}</td>
+                <td>
+                    <a href="{{ path('admin_langages_show', {'idLangages': infos_langage.idLangages}) }}">show</a>
+                    <a href="{{ path('admin_langages_edit', {'idLangages': infos_langage.idLangages}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_langages_new') }}">Create new</a>
+{% endblock %}

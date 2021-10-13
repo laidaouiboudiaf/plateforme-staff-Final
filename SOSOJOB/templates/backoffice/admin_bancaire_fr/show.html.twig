@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<title>InfosBancairesF</title>
+
+{% block body %}
+    <h1>InfosBancairesF</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>TitulaireDuCompte</th>
+                <td>{{ infos_bancaires_f.titulaireDuCompte }}</td>
+            </tr>
+            <tr>
+                <th>Iban</th>
+                <td>{{ infos_bancaires_f.iban }}</td>
+            </tr>
+            <tr>
+                <th>IdBancairesF</th>
+                <td>{{ infos_bancaires_f.idBancairesF }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_bancaire_fr_index') }}">back to list</a>
+
+    <a href="{{ path('admin_bancaire_fr_edit', {'idBancairesF': infos_bancaires_f.idBancairesF}) }}">edit</a>
+
+    {{ include('backoffice/admin_bancaire_fr/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<title>InfosLangages</title>
+
+{% block body %}
+    <h1>InfosLangages</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>NomLangage</th>
+                <td>{{ infos_langage.nomLangage }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ infos_langage.niveau }}</td>
+            </tr>
+            <tr>
+                <th>IdLangages</th>
+                <td>{{ infos_langage.idLangages }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_langages_index') }}">back to list</a>
+
+    <a href="{{ path('admin_langages_edit', {'idLangages': infos_langage.idLangages}) }}">edit</a>
+
+    {{ include('backoffice/admin_langages/_delete_form.html.twig') }}
+{% endblock %}

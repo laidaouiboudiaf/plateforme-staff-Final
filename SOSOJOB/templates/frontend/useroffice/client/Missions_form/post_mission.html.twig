@@ -1,0 +1,568 @@
+{{ form_start(MissionForm) }}
+ {% if form_errors(MissionForm) is not empty %}
+     <div class="alert alert-danger alert-dismissible fade show" role="alert">
+         {{ form_errors(MissionForm) }}
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+         </button>
+     </div>
+ {% endif %}
+
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-8">
+
+            <div class="card">
+
+
+                <div id="msform">
+                    <!-- progressbar -->
+
+
+                    <ul id="progressbar">
+                        <li  id="account"><strong>Description</strong></li>
+                        <li id="planif"><strong>Planification</strong></li>
+                        <li id="local"><strong>Localisation</strong></li>
+                        <li id="contact"><strong>Contact</strong></li>
+                        <li id="dets"><strong>Détails supplémentaires</strong></li>
+                    </ul>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <br> <!-- fieldsets -->
+
+                    <fieldset id="1erP">
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">En quoi consiste votre mission ? </h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Etapes 1 - 5</h2>
+                                </div>
+                            </div>
+
+
+                            <div class="col">
+
+                                {{ form_row(MissionForm.objetMissions ) }}
+                                {{ form_errors(MissionForm.objetMissions ) }}
+
+                            </div>
+
+
+                            <div class="col">
+
+                                {{ form_row(MissionForm.typeDemission) }}
+
+                            </div>
+
+                            <div class="col" id="test1">
+                                {{ form_row(MissionForm.Categorie_Autre ) }}
+                            </div>
+
+
+                            <div class="col">
+
+                                {{ form_row(MissionForm.nombreJobber ) }}
+                            </div>
+
+                            <div class="col">
+
+                                {{ form_row(MissionForm.descriptionMissions ) }}
+                            </div>
+
+
+                        </div>
+                        <input type="button" id="suiv1" name="next" class="next action-button" value="Suivant"/>
+
+                    </fieldset>
+
+                    {#
+                    partie 2 #}
+
+
+                    <fieldset id="2emP">
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title"> Quand souhaitez-vous démarrer votre mission </h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Etapes 2 - 5</h2>
+                                </div>
+                            </div>
+                            {# Date de début : … puis heure de début : …
+                            Date de fin : … heure de fin : … (heure de fin non connue ? OUI / NON)
+                            Date et heure de fin flexible ? OUI / NON
+                            Si oui précisez par jours : champs libres
+                            ou cocher des cases sur un calendrier #}
+                            <div class="col">
+                                {{ form_row(MissionForm.dateDebutMissionsPr) }}
+                            </div>
+                            <div class="col">
+
+                                {{ form_row(MissionForm.dateFinMissionsPr) }}
+
+                            </div>
+
+                            {# <div class="col">
+                                {{ form_row(MissionForm.horaireMissions) }}
+
+
+                            </div>
+                            #}
+                            <table class="table">
+
+                                <tr>
+
+                                    <th scope="col">       {{ form_row(MissionForm.heures_Debut_Missions) }}</th>
+                                    <th scope="col">   {{ form_row(MissionForm.heures_Debut_Pause) }}</th>
+
+                                    <th scope="col"> {{ form_row(MissionForm.heure_Fin_Pause) }}</th>
+                                    <th scope="col">       {{ form_row(MissionForm.heures_Fin_Missions) }}</th>
+
+                                </tr>
+                            </table>
+
+
+                        </div>
+
+
+                        <input type="button" id="suiv2" name="next" class="next action-button" value="Suivant"/>
+                        <input type="button" id="prev1"
+                               name="previous"
+                               class="previous action-button-previous"
+                               value="Précédent"/>
+
+                    </fieldset>
+
+                    {#
+                    partie 3
+                    #}
+                    <fieldset id="3emP">
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">localisation :</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Etapes 3 - 5</h2>
+                                </div>
+                            </div>
+                            <div class="col">
+                                {{ form_row(MissionForm.Adresse_contact) }}
+                            </div>
+                            <div class="col">
+                                {{ form_row(MissionForm.infoSuplementaires) }}
+                            </div>
+
+                        </div>
+                        <input type="button" id="suiv3" name="next" class="next action-button" value="Suivant"/>
+                        <input
+                                type="button" id="prev2" name="previous" class="previous action-button-previous"
+                                value="Précédent"/>
+                    </fieldset>
+
+                    {#
+                    partie 4
+                    #}
+                    <fieldset id="4emP">
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Contact :</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Etapes 4 - 5</h2>
+                                </div>
+                            </div>
+                            <div class="col">
+                                {{ form_row(MissionForm.nomContact ) }}
+                            </div>
+                            <div class="col">
+                                {{ form_row(MissionForm.prenomContact) }}
+                            </div>
+                            <div class="col">
+                                {{ form_row(MissionForm.emailContact) }}
+                            </div>
+                            <div class="col">
+                                {{ form_row(MissionForm.telContact) }}
+                            </div>
+                        </div>
+                        <input type="button" id="suiv4" name="next" class="next action-button" value="Suivant"/>
+                        <input type="button"
+                               id="prev3"
+                               name="previous"
+                               class="previous action-button-previous"
+                               value="Précédent"/>
+                    </fieldset>
+
+                    {#
+                    partie 4
+                    #}
+                    <fieldset id="5emP">
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Souhaitez-vous ajouter des detailes supplémentaire :</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Etapes 5 - 5</h2>
+                                </div>
+                            </div>
+                            <br><br>
+                            <div class="col">
+                                {{ form_row(MissionForm.equipement) }}
+                            </div>
+
+
+                            <div class="col">
+                                {{ form_row(MissionForm.permis_Mission) }}
+                            </div>
+
+
+                            {# <div class="col">
+
+                                {{ form_row(MissionForm.idPermis) }}
+                            </div> #}
+                            {# <div class="btn-group">
+                                <button type="button" class="btn btn-danger">Permis</button>
+                                <button type="button" class="btn btn-secondary  dropdown-toggle dropdown-toggle-split"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">catégorie A </a>
+                                    <a class="dropdown-item" href="#">catégorie B</a>
+                                    <a class="dropdown-item" href="#">catégorie C et D </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Permis remorque </a>
+                                </div>
+                            </div> #}
+
+
+                            <br><br>
+                            {#
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-danger">Equipement</button>
+                                <button type="button" class="btn btn-secondary  dropdown-toggle dropdown-toggle-split"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Les gants </a>
+                                    <a class="dropdown-item" href="#">Combinaison </a>
+                                    <a class="dropdown-item" href="#">Lunette de protection </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Les chaussures de protection </a>
+                                </div>
+                            </div> #}
+                            <div class="col">
+                                {{ form_row(MissionForm.detailSuplimentaire) }}
+                            </div>
+                            <br><br>
+
+
+                            <input type="submit" name="next" class="next action-button" value="Sauvegarder"/>
+
+
+                            <input type="button"
+                                   id="prev4"
+                                   name="previous"
+                                   class="previous action-button-previous"
+                                   value="Précédent"/>
+                        </div>
+                    </fieldset>
+
+                </div>
+                {{ form_end(MissionForm) }}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% block javascripts %}
+
+    <!-- Core plugin JavaScript-->
+    {#
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
+            integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ=="
+            crossorigin="anonymous"></script> #}
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+
+
+    <!-- Page level plugins -->
+    {#
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    #}
+
+    <!-- Page level custom scripts -->
+    {# <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script> #}
+    {# <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"
+            integrity="sha512-T/tUfKSV1bihCnd+MxKD0Hm1uBBroVYBOYSk1knyvQ9VyZJpc/ALb4P0r6ubwVPSGB2GvjeoMAJJImBG12TiaQ=="
+            crossorigin="anonymous"></script>
+
+
+    <script>
+        $('#test1').hide();
+
+        $("#mission_form_typeDemission").click(function () {
+
+
+                    if ($('#mission_form_typeDemission option:selected').val() == "32") {
+
+                        $('#test1').toggle();
+                    }
+
+
+                }
+
+        );
+
+
+    </script>
+
+    <script>
+        var current_fs, next_fs, previous_fs; //fieldsets
+        var opacity;
+        var current = 1;
+        var steps = 4
+
+
+        function setProgressBar(curStep) {
+            var percent = parseFloat(100 / steps) * curStep;
+            percent = percent.toFixed();
+            $(".progress-bar")
+                .css("width", percent + "%")
+        }
+
+        $("#suiv1").click(function () {
+
+            if ($("#mission_form_objetMissions").val() == '') {
+                $("#mission_form_objetMissions").focus();
+            } else if ($("#mission_form_nombreJobber").val() == '') {
+                $("#mission_form_nombreJobber").focus();
+            } else if ($("#mission_form_typeDemission").val() == '') {
+                $("#mission_form_typeDemission").focus();
+            } else {
+                setProgressBar(current++);
+                $('#2emP').toggle();
+                $('#1erP').hide();
+                $('#3emP').hide();
+                $('#4emP').hide();
+                $('#5emP').hide();
+
+            }
+        });
+        $("#suiv2").click(function () {
+
+
+            if ($("#mission_form_dateDebutMissionsPr_month").val() == '') {
+                $("#mission_form_dateDebutMissionsPr_month").focus();
+            } else if ($("#mission_form_dateFinMissionsPr").val() == '') {
+                $("#mission_form_dateFinMissionsPr").focus();
+            } else {
+                setProgressBar(current++);
+                $('#3emP').toggle();
+                $('#1erP').hide();
+                $('#2emP').hide();
+                $('#4emP').hide();
+                $('#5emP').hide();
+
+            }
+        });
+
+        $("#suiv3").click(function () {
+            if ($("#mission_form_Adresse_contact").val() == '') {
+                $("#mission_form_Adresse_contact").focus();
+            } else {
+                setProgressBar(current++);
+                $('#4emP').toggle();
+                $('#1erP').hide();
+                $('#2emP').hide();
+                $('#3emP').hide();
+                $('#5emP').hide();
+            }
+        });
+        $("#suiv4").click(function () {
+            if ($("#mission_form_nomContact").val() == '') {
+                $("#mission_form_nomContact").focus();
+            } else if ($("#mission_form_prenomContact").val() == '') {
+                $("#mission_form_prenomContact").focus();
+            } else if ($("#mission_form_telContact").val() == '') {
+                $("#mission_form_telContact").focus();
+            } else {
+                setProgressBar(current++);
+                $('#5emP').toggle();
+                $('#1erP').hide();
+                $('#2emP').hide();
+                $('#3emP').hide();
+                $('#4emP').hide();
+            }
+        });
+
+        $("#prev1").click(function () {
+            setProgressBar(--current);
+
+            $('#1erP').toggle();
+            $('#2emP').hide();
+            $('#3emP').hide();
+            $('#4emP').hide();
+            $('#5emP').hide();
+
+        });
+        $("#prev2").click(function () {
+
+            setProgressBar(--current);
+            $('#2emP').toggle();
+            $('#1erP').hide();
+            $('#3emP').hide();
+            $('#4emP').hide()
+            $('#5emP').hide();
+
+
+        });
+        $("#prev3").click(function () {
+            setProgressBar(--current)
+
+            $('#3emP').toggle();
+            $('#2emP').hide();
+            $('#1erP').hide();
+            $('#4emP').hide();
+            $('#5emP').hide();
+
+        });
+        $("#prev4").click(function () {
+            setProgressBar(--current)
+
+            $('#4emP').toggle();
+            $('#3emP').hide();
+            $('#2emP').hide();
+            $('#1erP').hide();
+            $('#5emP').hide();
+
+        });
+
+
+        $("#save").click(function () {
+
+            /*     if( tu_es == true && $("#fournisseur_form_tu_es").val() == ''){
+                     $("#fournisseur_form_tu_es").focus();*/
+            return false;
+        })
+
+    </script>
+
+    <script type=text/javascript>
+
+        // On vérifie si le navigateur supporte la géolocalisation
+        if (navigator.geolocation) {
+
+            function hasPosition(position) {
+                // Instanciation
+                var point = new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+
+                    // Ajustage des paramètres
+                    myOptions = {
+                        zoom: 15,
+                        center: point,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    },
+
+                    // Envoi de la carte dans la div
+                    mapDiv = document.getElementById("mapDiv"),
+                    map = new google.maps.Map(mapDiv, myOptions),
+
+                    marker = new google.maps.Marker({
+                        position: point,
+                        map: map,
+                        // Texte du point
+                        title: "Vous êtes ici"
+                    });
+            }
+
+            navigator.geolocation.getCurrentPosition(hasPosition);
+        }
+
+
+        var direct = false;
+        $("#m,#r,#s,#ch,#a,#c").on("click", function () {
+            direct = !direct;
+            if (direct) {
+                $(this).css("background", "rgba(0, 0, 255, 0.1)");
+                $(this).css("border", "2px solid grey");
+
+            } else {
+                $(this).css("background", "");
+                $(this).css("border", "");
+            }
+            return false;
+        });
+
+
+        $(document).ready(function () {
+
+
+            $('#another-element').hide();
+            $('#another').hide();
+            $('#ano').hide();
+            $('#an').hide();
+
+            $("#btn-rc").click(function () {
+                $('#another-element').toggle();
+                $('#another').toggle();
+                $('#ano').toggle();
+                $('#an').toggle();
+
+            });
+
+
+        });
+    </script>
+    <script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+
+    <script>
+
+        /*      $(document).ready(function() {
+                  // you may need to change this code if you are not using Bootstrap Datepicker
+                  $('#mission_form_dateFinMissionsPr').datepicker({
+                      format: 'yyyy-mm-dd'
+                  });
+              });
+
+
+
+              $(document).ready(function() {
+                  // you may need to change this code if you are not using Bootstrap Datepicker
+                  $('#mission_form_dateDebutMissionsPr').datepicker({
+                      format: 'yyyy-dd-mm'
+                  });
+              });*/
+
+        /*    $("#next1").click(function () {
+               /!* alert("b");*!/
+
+                if($("#mission_form_nombreJobber").val() == ''){
+                    $("#mission_form_nombreJobber").focus();
+                }
+            });*/
+
+    </script>
+{% endblock %}

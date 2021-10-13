@@ -1,0 +1,151 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Voir un Fournisseur {% endblock %}
+
+{% block body %}
+    <h1>Fournisseur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdFournisseur</th>
+                <td>{{ fournisseur.idFournisseur }}</td>
+            </tr>
+            <tr>
+                <th>AdresseF</th>
+                <td>{{ fournisseur.adresseF }}</td>
+            </tr>
+            <tr>
+                <th>Genre</th>
+                <td>{{ fournisseur.genre }}</td>
+            </tr>
+            <tr>
+                <th>LieuDeNaissance</th>
+                <td>{{ fournisseur.lieuDeNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Nationalite</th>
+                <td>{{ fournisseur.nationalite }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td>{{ fournisseur.photo }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ fournisseur.statut }}</td>
+            </tr>
+            
+            <tr>
+                <th>Numero_RCS</th>
+                <td>{{ fournisseur.numeroRCS }}</td>
+            </tr>
+            <tr>
+                <th>Numero_securiteSociale</th>
+                <td>{{ fournisseur.numeroSecuriteSociale }}</td>
+            </tr>
+            <tr>
+                <th>Situation</th>
+                <td>{{ fournisseur.situation }}</td>
+            </tr>
+            <tr>
+                <th>Is_available</th>
+                <td>{{ fournisseur.isAvailable ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Nom_pere</th>
+                <td>{{ fournisseur.nomPere }}</td>
+            </tr>
+            <tr>
+                <th>Prenom_pere</th>
+                <td>{{ fournisseur.prenomPere }}</td>
+            </tr>
+            <tr>
+                <th>Nom_mere</th>
+                <td>{{ fournisseur.nomMere }}</td>
+            </tr>
+            <tr>
+                <th>Prenom_mere</th>
+                <td>{{ fournisseur.prenomMere }}</td>
+            </tr>
+            <tr>
+                <th>Activite_salarie</th>
+                <td>{{ fournisseur.activiteSalarie }}</td>
+            </tr>
+            <tr>
+                <th>Etablissement_UE</th>
+                <td>{{ fournisseur.etablissementUE }}</td>
+            </tr>
+            <tr>
+                <th>Ressortissant_hors_UE</th>
+                <td>{{ fournisseur.ressortissantHorsUE }}</td>
+            </tr>
+            <tr>
+                <th>Numero_titre_sejour</th>
+                <td>{{ fournisseur.numeroTitreSejour }}</td>
+            </tr>
+            <tr>
+                <th>Departement_delivrance</th>
+                <td>{{ fournisseur.departementDelivrance }}</td>
+            </tr>
+            <tr>
+                <th>Date_expiration_titre_sejour</th>
+                <td>{{ fournisseur.dateExpirationTitreSejour ? fournisseur.dateExpirationTitreSejour|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Ville_delivrance</th>
+                <td>{{ fournisseur.villeDelivrance }}</td>
+            </tr>
+            <tr>
+                <th>Ci</th>
+                <td>{{ fournisseur.ci }}</td>
+            </tr>
+            <tr>
+                <th>Signature</th>
+                <td>{{ fournisseur.signature }}</td>
+            </tr>
+            <tr>
+                <th>Justificatif_domicile</th>
+                <td>{{ fournisseur.justificatifDomicile }}</td>
+            </tr>
+            <tr>
+                <th>Accre</th>
+                <td>{{ fournisseur.accre }}</td>
+            </tr>
+            <tr>
+                <th>H_PoleEmploi</th>
+                <td>{{ fournisseur.hPoleEmploi }}</td>
+            </tr>
+            <tr>
+                <th>ABM</th>
+                <td>{{ fournisseur.ABM }}</td>
+            </tr>
+            <tr>
+                <th>NDP</th>
+                <td>{{ fournisseur.NDP }}</td>
+            </tr>
+            <tr>
+                <th>ANC</th>
+                <td>{{ fournisseur.ANC }}</td>
+            </tr>
+            <tr>
+                <th>JPHD</th>
+                <td>{{ fournisseur.JPHD }}</td>
+            </tr>
+            <tr>
+                <th>ZUS</th>
+                <td>{{ fournisseur.ZUS }}</td>
+            </tr>
+            <tr>
+                <th>Tu_es</th>
+                <td>{{ fournisseur.tuEs }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('admin_fournisseur_index') }}">back to list</a>
+
+    <a class="btn btn-warning" href="{{ path('admin_fournisseur_edit', {'idFournisseur': fournisseur.idFournisseur}) }}">Editer</a>
+
+    {{ include('backoffice/admin_fournisseur/_delete_form.html.twig') }}
+{% endblock %}

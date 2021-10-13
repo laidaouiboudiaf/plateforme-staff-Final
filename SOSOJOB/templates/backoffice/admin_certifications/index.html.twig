@@ -1,0 +1,39 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Certifications{% endblock %}
+
+{% block body %}
+    <h1>Liste Certifications index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NomCertification</th>
+                <th>Niveau</th>
+                <th>DateObtentionCertif</th>
+                <th>IdCertifications</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infos_certification in infos_certifications %}
+            <tr>
+                <td>{{ infos_certification.nomCertification }}</td>
+                <td>{{ infos_certification.niveau }}</td>
+                <td>{{ infos_certification.dateObtentionCertif ? infos_certification.dateObtentionCertif|date('Y-m-d') : '' }}</td>
+                <td>{{ infos_certification.idCertifications }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('admin_certifications_show', {'idCertifications': infos_certification.idCertifications}) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('admin_certifications_edit', {'idCertifications': infos_certification.idCertifications}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<br>
+    <a class="btn btn-success" href="{{ path('admin_certifications_new') }}">Create new</a>
+{% endblock %}

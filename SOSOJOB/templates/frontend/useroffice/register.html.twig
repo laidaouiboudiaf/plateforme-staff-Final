@@ -1,0 +1,208 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block stylesheets %}
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="vendor/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link href="vendor/fonts/fontello/css/fontello.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/bootstrap-offset-right.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/purple.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+{% endblock %}
+
+{% block bodyclass %}
+    class="bg-gradient-primary"
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="center-block">
+            <div class="col-lg-4 col-lg-offset-1 col-md-4 col-md-offset-1 col-sm-12 col-xs-12 no-padding" style="z-index:1">
+                <!-- Slider -->
+                <div class="mlt-carousel">
+                    <div id="myCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <img class="img-responsive center-block" src="assets/img/img/r1.png" alt="r1">
+                                <div class="item-content">
+                                    <h3>Des Jobers qualifié </h3>
+                                    {#<p>Consectetur adipiscing elit</p>
+                                    <p>Phasellus orci dolor</p>
+                                    <p>dapibus suscipit quam</p>#}
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive center-block" src="assets/img/img/r2.png" alt="r2">
+                                <div class="item-content">
+                                    <h3>Un cadre juridique légal</h3>
+                                    {#<p>Laoreet placerat justo congue vulputate</p>
+                                    <p>Diam felis dapibus nulla</p>
+                                    <p>Phasellus molestie</p>#}
+                                </div>
+                            </div>
+                            <div class="item">
+                                <img class="img-responsive center-block" src="assets/img/img/r3.png" alt="r3">
+                                <div class="item-content">
+                                    <h3>Du renfort ponctuel</h3>
+                                    {#<p>Laoreet placerat justo congue vulputate</p>
+                                    <p>Diam felis dapibus nulla</p>
+                                    <p>Phasellus molestie</p>#}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                    <!--mlt-carousel-->
+                </div>
+                <!-- Slider -->
+            </div>
+            <!-- Login -->
+
+            <div class="col-lg-6 col-lg-offset-right-1 col-md-6 col-md-offset-right-1 col-sm-12 col-xs-12 no-padding">
+                <div class="mlt-content">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#register" data-toggle="tab">S'inscrire</a></li>
+                        <li><a href="{{ path('login') }}">Se Connecter</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content mt-1 mb-1">
+                        <div class="tab-pane fade in active" id="register">
+                            <!--register form-->
+                            {#<form form data-feedback='{"success": "fa-check", "error": "fa-times"}'>#}
+                            {{ form_start(registrationForm, {'attr': {'class': 'user'}}) }}
+                            {% if form_errors(registrationForm) is not empty %}
+                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                    {{ form_errors(registrationForm) }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            {% endif %}
+                            {% for message in app.flashes('success') %}
+                                <div class="alert alert-success alert-dissmissible" role="alert">{{ message }}</div>
+                            {% endfor %}
+                            <div class="col-lg-10 col-lg-offset-1 col-lg-offset-right-1 col-md-10 col-md-offset-1 col-md-offset-right-1 col-sm-12 col-xs-12 pull-right ">
+                                <div class="row text-center mt-4 mb-0">
+                                    {{ form_row(registrationForm.roles) }}
+                                </div>
+                                <div class="row mt-0">
+                                    <div class="col mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-group has-feedback">
+                                        {{ form_row(registrationForm.prenom, {'attr': {'class': 'mdl-textfield__input', 'placeholder' : 'Prénom'}}) }}
+                                    </div>
+                                    <div class="col mdl-textfield mdl-js-textfield mdl-textfield--floating-label form-group has-feedback">
+                                        {{ form_row(registrationForm.nom, {'attr': {'class': 'mdl-textfield__input', 'placeholder' : 'Nom'}}) }}
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+                                        {{ form_row(registrationForm.adresseMail, {'attr': {'class': 'mdl-textfield__input', 'placeholder' : 'Adresse mail'}}) }}
+                                    </div>
+
+                                    <div class="col mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+                                        {{ form_row(registrationForm.num, {'attr': {'class': 'mdl-textfield__input', 'placeholder' : 'Numéro de Téléphone', 'pattern' : '[0-9]{10}|\\+33[0-9]{9}', 'required' : 'required'}}) }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+                                        {{ form_row(registrationForm.plainPassword.first, {'attr': {'class': 'mdl-textfield__input ', 'placeholder' : 'Mot de Passe'}}) }}
+                                    </div>
+                                    <div class="col mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+                                        {{ form_row(registrationForm.plainPassword.second, {'attr': {'class': 'mdl-textfield__input', 'placeholder' : 'Confirmer votre Mot de Passe'}}) }}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    {% set termsOfConditon %}
+                                        {{ form_row(registrationForm.condition) }}
+                                    {% endset %}
+                                    {{ termsOfConditon|replace({'#condition#':"<a href='/conditions' target='_blank'> conditions générales de vente et d'utilisation </a>",'#confidentialité#':"<a href='donneespersonnelles' target='_blank'> politique de confidentialité </a>"})|raw }}
+
+                                    <button type="submit" class="btn lt-register-btn mt-0 mb-1">Créer mon Compte <i class="icon-right pull-right "></i></button><br>
+                                    <a class="small" href="{{ path('home') }}">Retour au site</a>
+
+                                </div>
+                            </div>
+                            {{ form_end(registrationForm) }}
+                            <!--register form-->
+                        </div>
+                        <div class="tab-pane fade" id="login">
+
+                        </div>
+                    </div>
+                </div>
+                <!--Login-->
+            </div>
+            <!--center-block-->
+        </div>
+        <!--container-->
+    </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <script src="/vendor/node_modules/jquery/dist/jquery.min.js "></script>
+    <script src="vendor/node_modules/bootstrap/dist/js/bootstrap.min.js "></script>
+    <script src="vendor/libs/mdl/material.min.js "></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js "></script>
+
+    <script>
+        //Google analytics.
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-79865537-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <script>
+        //Form validation.
+        $('form').validate({
+            rules: {
+                fname: {
+                    minlength: 3,
+                    maxlength: 15,
+                }
+            },
+            errorPlacement: function(error, element) {},
+            highlight: function(element) {
+                var id_attr = "#" + $(element).attr("id") + "1";
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+                $(id_attr).removeClass('icon-ok-circled2').addClass('icon-cancel-circled2');
+            },
+            unhighlight: function(element) {
+                var id_attr = "#" + $(element).attr("id") + "1";
+                $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+                $(id_attr).removeClass('icon-cancel-circled2').addClass('icon-ok-circled2');
+            },
+        });
+    </script>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+
+<!DOCTYPE html>
+
+<title>New MissionsAttr</title>
+
+{% block body %}
+    <div class="text-center mb-4">
+    <h1>Créer une nouvelle mission attribuée</h1>
+    </div>
+
+    {{ include('backoffice/admin_missions_attr/_form.html.twig') }}
+
+    <a href="{{ path('admin_missions_attr_index') }}">back to list</a>
+{% endblock %}

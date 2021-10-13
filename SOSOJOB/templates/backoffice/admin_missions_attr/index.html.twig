@@ -1,0 +1,87 @@
+{% extends 'frontend/base.html.twig' %}
+
+
+
+{% block body %}
+    <title>MissionsAttr index</title>
+
+    <h1>MissionsAttr index</h1>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>DateDebutMissionsRl</th>
+            <th>DateFinMissionsRl</th>
+            <th>Client</th>
+            <th>Fournisseur</th>
+            <th>Statut</th>
+            <th>Nombre d'heures</th>
+            <th>Validation d'heure</th>
+
+            <th>Montant</th>
+            <th>Facture client (pdf)</th>
+            <th>Montant fournisseur</th>
+            <th>Facture fournisseur (pdf)</th>
+
+            <th>actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for missions_attr in missions_attrs %}
+            <tr>
+                <td>{{ missions_attr.dateDebutMissionsRl ? missions_attr.dateDebutMissionsRl|date('Y-m-d') : '' }}</td>
+                <td>{{ missions_attr.dateFinMissionsRl ? missions_attr.dateFinMissionsRl|date('Y-m-d') : '' }}</td>
+                <td>{{ missions_attr.idClient }}</td>
+                <td>{{ missions_attr.idFournisseur }}</td>
+
+                <td>{{ missions_attr.statut }}</td>
+                <td> {{ missions_attr.getNbHeures() }}</td>
+                <td>  {{ missions_attr.getValidNbHeure() }}</td>
+                <td>{{ missions_attr.getMontantPrestation() }}</td>
+
+
+                {% if missions_attr.facture is empty %}
+                <td><a class="btn btn-danger" href="#">En cours </a>
+                {% else %}
+
+                <td><a class="btn btn-primary" href="{{ asset('uploads/factures/' ~ missions_attr.facture) }}">View
+                        Invoice (PDF)</a>
+                    {% endif %}
+
+                <td>{{ missions_attr.getChiffreAffaire() }}</td>
+
+
+
+
+                {% if missions_attr.factureF is empty %}
+                <td><a class="btn btn-danger" href="#">En cours </a>
+
+                    {% else %}
+                <td><a class="btn btn-primary" href="{{ asset('uploads/factures/' ~ missions_attr.factureF) }}">View
+                        Invoice (PDF)</a>
+                    {% endif %}
+
+
+                </td>
+                <td>
+                    <a class="btn btn-info"
+                       href="{{ path('admin_missions_attr_show', {'id': missions_attr.idMissionsAttr}) }}">show</a>
+                    <a class="btn btn-success"
+                       href="{{ path('admin_missions_attr_edit', {'id': missions_attr.idMissionsAttr}) }}">edit</a>
+                </td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('admin_missions_attr_new') }}">Create new</a>
+
+    <a class="btn btn-secondary" href="{{ path('dash_admin') }}"> ❮ Previous to list</a>
+
+{% endblock %}

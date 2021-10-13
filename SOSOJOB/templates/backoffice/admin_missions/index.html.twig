@@ -1,0 +1,85 @@
+
+
+
+{% block title %}
+Missions index
+{% endblock %}
+{% block body %}
+    <h1>Missions index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>IdMissions</th>
+            <th>ObjetMissions</th>
+            <th>DescriptionMissions</th>
+            <th>CategorieMissions</th>
+            <th>DateDebutMissionsPr</th>
+            <th>DateFinMissionsPr</th>
+
+            <th>Horaire</th>
+            <th>Horaire</th>
+            <th>Horaire</th>
+            <th>Horaire</th>
+
+            <th>nombreJobber</th>
+            <th>AdresseContact</th>
+            <th>Info suplementaire</th>
+
+            <th>nom</th>
+            <th>prenom</th>
+            <th>email</th>
+            <th>tel</th>
+            <th>Equipement</th>
+            <th>Permis</th>
+
+            <th>Etat</th>
+
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for mission in missions %}
+            <tr>
+                <td>{{ mission.idMissions }}</td>
+                <td>{{ mission.objetMissions }}</td>
+                <td>{{ mission.descriptionMissions }}</td>
+                <td>{{ mission.typeDemission }}</td>
+                <td>{{ mission.dateDebutMissionsPr ? mission.dateDebutMissionsPr|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ mission.dateFinMissionsPr ? mission.dateFinMissionsPr|date('Y-m-d H:i:s') : '' }}</td>
+
+                <td>{{ mission.horaireMissions ? mission.heures_Debut_Missions|date('H:i:s') : '' }}</td>
+                <td>{{ mission.horaireMissions ? mission.heures_Debut_Pause('H:i:s') : '' }}</td>
+                <td>{{ mission.horaireMissions ? mission.heure_Fin_Pause('H:i:s') : '' }}</td>
+                <td>{{ mission.horaireMissions ? mission.heures_Fin_Missions|date('H:i:s') : '' }}</td>
+
+
+                <td>{{ mission.nombreJobber }}</td>
+                <td>{{ mission.getAdresseContact() }}</td>
+                <td>{{ mission.infoSuplementaires }}</td>
+
+                <td>{{ mission.nomContact }}</td>
+
+                <td>{{ mission.prenomContact }}</td>
+
+                <td>{{ mission.emailContact }}</td>
+                <td>{{ mission.telContact }}</td>
+
+                <td>{{ mission.equipement }}</td>
+
+                <td>{{ mission.getPermisMission()}}</td>
+                <td>
+                    <a href="{{ path('admin_missions_show', {'idMissions': mission.idMissions}) }}">show</a>
+                    <a href="{{ path('admin_missions_edit', {'idMissions': mission.idMissions}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_missions_new') }}">Create new</a>
+{% endblock %}

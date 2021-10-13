@@ -1,0 +1,11 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Ajout les Informations bacncaire du clients {% endblock %}
+
+{% block body %}
+    <h1>Ajout les Informations bacncaire du clients </h1>
+
+    {{ include('backoffice/admin_bancaire_clt/_form.html.twig') }}
+
+    <a class="btn btn-primary" href="{{ path('admin_bancaire_clt_index') }}">back to list</a>
+{% endblock %}

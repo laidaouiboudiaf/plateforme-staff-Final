@@ -1,0 +1,13 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Edit Type de mission{% endblock %}
+
+{% block body %}
+    <h1>Editer un type de mission</h1>
+
+    {{ include('backoffice/admin_type_mission/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-primary" href="{{ path('admin_type_mission_index') }}">back to list</a>
+<br>
+    {{ include('backoffice/admin_type_mission/_delete_form.html.twig') }}
+{% endblock %}

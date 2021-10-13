@@ -1,0 +1,652 @@
+{{ form_start(registrationForm) }}
+    {% if form_errors(registrationForm) is not empty %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                     {{ form_errors(registrationForm) }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+
+{{ form_row(registrationForm._token) }}
+<div id="1erP">
+        <div class="card bg-light shadow-lg p-1 m-5 bg-blue rounded mt-2">
+            <div class="card-title text-center">
+                <h5> Ces informations sont nécessaires à la création de votre statut d’autoentrepreneur</h5>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <div>
+                    {{ form_row(registrationForm.nationalite) }}
+                </div>
+
+                <div class="mt-3">
+                    {{ form_row(registrationForm.adresseF) }}
+                </div>
+
+                <div class="mt-3">
+                    {{ form_row(registrationForm.numero_securiteSociale) }}
+                </div>
+
+                 <div class="row mt-3">
+                    <div class="col">
+                        {{ form_row(registrationForm.nom_pere) }}
+                    </div>
+
+                    <div class="col">
+                     {{ form_row(registrationForm.prenom_pere) }}
+                    </div>
+                </div>
+
+                 <div class="row mt-3">
+                    <div class="col">
+                        {{ form_row(registrationForm.nom_mere) }}
+                    </div>
+
+                    <div class="col">
+                     {{ form_row(registrationForm.prenom_mere) }}
+                    </div>
+                </div>
+
+                <div class="row mt-4 text-center">
+                    <div class="col">
+                        {{ form_row(registrationForm.situation) }}
+                    </div>
+
+                    <div class="col">
+                     {{ form_row(registrationForm.genre) }}
+                    </div>
+                </div>
+
+                <div class="mt-4 text-center">
+                        {{ form_row(registrationForm.etablissement_UE) }}
+                </div>
+
+                <div class="mt-4 text-center">
+                     {{ form_row(registrationForm.ressortissant_hors_UE) }}
+                </div>
+
+                <div id="r_ue">
+
+                    <div class="row mt-3">
+                        <div class="col">
+                           
+                                  {{ form_row(registrationForm.numero_titre_sejour) }}    
+                           
+                        </div>
+
+                         <div class="col">
+                            {{ form_row(registrationForm.departement_delivrance) }}
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+
+                        <div class="col">
+                            {{ form_row(registrationForm.ville_delivrance) }}
+                        </div>
+
+                        <div class="col">
+                            {{ form_row(registrationForm.date_expiration_titre_sejour) }}
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="row text-center mt-4">
+                    {{ form_label(registrationForm.activite_salarie, 'Exercez-vous une autre activité') }}
+                    {{ form_row(registrationForm.activite_salarie)}}
+                </div>
+
+
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <div class="mx-5">
+                    {{ form_row(registrationForm.Fournisseur_TypeMission) }}
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row justify-content-between mt-4">
+
+            {# <div class="col d-grid gap-2 d-md-block">
+            <button class="btn btn-primary" type="button">Button</button>
+            </div> #}
+                <div class="col d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-primary" id="suv1" type="submit" >Suivant</button>
+                </div>
+
+        </div>
+
+        <div class="mb-3 row text-center">
+            <h3> <label> Etape 1/4 </label> </h3>
+        </div>
+
+</div>
+{# //fin 1ére partie #}
+
+<div id="2emP">
+
+<div class="card bg-light shadow-lg p-1 m-5 bg-white rounded mt-2">
+    <div class="card-title text-center">
+        <h5> Ces documents sont nécessaires à la constitution de votre dossier</h5>
+    </div>
+</div>
+
+ <div class="row">
+    <div class="col-md-4 mb-3">
+        {{ form_row(registrationForm.ci) }}
+    </div>
+    <div class="col-md-4 mb-3">
+        {{ form_row(registrationForm.justificatif_domicile) }}
+    </div>
+    <div class="col-md-4 mb-3">
+        {{ form_row(registrationForm.signature) }}
+    </div>
+</div>
+<div class="row mt-5">
+     <div class="col-md-4 mb-3">
+        {{ form_row(registrationForm.permis) }}
+    </div>
+    <div class="col-md-6 mb-3">
+        {{ form_row(registrationForm.photo) }}
+    </div>
+</div>
+<div class="mb-3 row text-center mt-3">
+    <h6> <label>  Vous pourrez retrouver vos déclaration dans votre espace SOS JOB une fois l’inscription terminé. </label> </h6>
+</div>
+
+<div class="row justify-content-between mt-4">
+    <div class="col d-grid gap-2 d-md-block">
+        <button class="btn btn-primary" id="pre1" type="button">Précédent</button>
+    </div>
+
+    <div class="col d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" id="suv2" type="button">Suivant</button>
+    </div>
+</div>
+
+<div class="mb-3 row text-center">
+    <h3> <label> Etape 2/4 </label> </h3>
+</div>
+
+</div>
+{#//fin 2ieme Partie#}
+
+<div id="3emP">
+    <div class="row">
+        <div class="mb-3">
+            {{ form_row(registrationForm.is_available) }}
+            {{ form_row(registrationForm.agreeTerms) }}
+           
+    
+             {# {% set termsOfConditon %}
+                                     
+              {% endset %} #}
+
+              
+                               
+                     {# {{ termsOfConditon|replace({'#nompere#':"<input id='nom' readonly/>",'#nommere#':"med"})|raw }} #}
+                         
+
+        </div>
+    </div>
+
+    <div class="row justify-content-between mt-4">
+
+        <div class="col d-grid gap-2 d-md-block">
+            <button class="btn btn-primary" id="pre2" type="button">Précédent</button>
+        </div>
+
+        <div class="col d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary" id="suv3" type="button">Suivant</button>
+        </div>
+    </div>
+
+    <div class="mb-3 row text-center">
+        <h3> <label> Etape 3/4 </label> </h3>
+    </div>
+
+</div>
+{#fin 3iem étape #}
+
+<div id="4emP">
+    <div class="mt-4 text-center">
+       {{ form_label(registrationForm.accre, 'Je souhaite bénéficier de l’accre') }}
+       {{ form_label(registrationForm.accre, "L'ACCRE consiste en une exonération de charges sociales pendant un an à compter, soit de la date de l'affiliation au régime des travailleurs non-salariés. ") }}
+       {{ form_row(registrationForm.accre) }}
+    </div>
+
+    <div align="center" id="accre">
+       <div style="width:350px;"> {{form_row(registrationForm.tu_es)}} </div>
+            <p id="acd1">Piéce d'identité attestant de la date de naissance</p>
+            <div id="acd2"> {{ form_row(registrationForm.h_PoleEmploi) }} </div>
+            <div id="acd4"> {{ form_row(registrationForm.NDP) }} </div>
+            <div id="acd3">   {{ form_row(registrationForm.ABM) }} </div>
+            <div id="acd5"> {{ form_row(registrationForm.ANC) }} </div>
+            <div id="acd6"> {{ form_row(registrationForm.JPHD) }} </div>
+            <div id="acd7"> {{ form_row(registrationForm.ZUS) }} </div>
+                     
+    </div>
+
+
+    <div class="row justify-content-between mt-5">
+        <div class="col d-grid gap-2 d-md-block">
+            <button class="btn btn-primary" id="pre3" type="button">Précédent</button>
+        </div>
+    </div>
+
+    <div class="mb-3 row text-center">
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="save">Enregistrer</button>
+        </div>
+    </div>
+
+    <div class="mb-3 row text-center">
+        <h3> <label> Etape 4/4 </label> </h3>
+    </div>
+
+</div>
+{# fin 4ieme Prtie#}
+
+
+
+
+
+{% block javascripts %}
+ <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="js/demo/chart-area-demo.js"></script>
+<script src="js/demo/chart-pie-demo.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+<script>
+
+
+{# function Validation()
+{
+var fichier = document.getElementById('fournisseur_form_photo');
+var valeur = fichier.value;
+var extensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+	if (!extensions.exec(valeur))
+	{
+		alert('Format de fichier non valide');
+		fichier.value = '';
+		return false;
+	}
+	else
+	{
+		if (fichier.files && fichier.files[0])
+		{
+			alert('Format de fichier valide');
+		}
+	}
+} #}
+
+//on initinialise les variable à false lorsque les radio button ne sont pas sélectionné
+    var genre=situation=etablissement=ressortissant=activite=false;
+//pour les checkbox idem
+    var is_available =_agreeTerms =false;
+//ressortissant
+    var tu_es=ru_e=false;
+
+
+
+//verifie si le button radio est coché ou pas
+        $("#fournisseur_form_etablissement_UE").click(function(){
+            etablissement=true;
+        });
+
+        $("#fournisseur_form_ressortissant_hors_UE").click(function(){
+            ressortissant=true;
+        });
+
+        $("#fournisseur_form_activite_salarie").click(function(){
+            activite=true;
+        });
+
+        $("#fournisseur_form_genre").click(function(){
+            genre=true;
+        });
+
+        $("#fournisseur_form_situation").click(function(){
+            situation=true;
+        });
+
+        $("#fournisseur_form_is_available").click(function(){
+            is_available=true;
+        });
+
+        $("#fournisseur_form_agreeTerms").click(function(){
+            _agreeTerms=true;
+        });
+
+
+
+    //hide pour cacher les les parties 1,2,3
+        $('#2emP').hide();
+        $('#3emP').hide();
+        $('#4emP').hide(); 
+        $('#r_ue').hide();
+        $('#accre').hide();
+
+        //les fichiers de la 4iéme partie
+        $('#acd1').hide();
+        $('#acd2').hide();
+        $('#acd3').hide();
+        $('#acd4').hide();
+        $('#acd5').hide();
+        $('#acd6').hide();
+        $('#acd7').hide();
+      
+
+
+        $("#fournisseur_form_accre_0").click(function(){
+           $('#accre').toggle();    
+           tu_es=true;
+
+            $('#fournisseur_form_tu_es').change(function() {
+                if($('#fournisseur_form_tu_es option:selected').val() == "") {
+                        $('#acd1').hide();
+                        $('#acd2').hide();
+                        $('#acd3').hide();
+                        $('#acd4').hide();
+                        $('#acd5').hide();
+                        $('#acd6').hide();
+                        $('#acd7').hide();
+                }
+
+                else if($('#fournisseur_form_tu_es option:selected').val() == "Jeune de 18 à 25") {
+                        $('#acd1').toggle();
+                        $('#acd2').hide();
+                        $('#acd3').hide();
+                        $('#acd4').hide();
+                        $('#acd5').hide();
+                        $('#acd6').hide();
+                        $('#acd7').hide();
+                }
+                 else if($('#fournisseur_form_tu_es option:selected').val() == "Demandeur d'emploi non indemnisé inscrit à Pôle Emploi") {
+                        $('#acd2').toggle();
+                        $('#acd1').hide();
+                        $('#acd3').hide();
+                        $('#acd4').hide();
+                        $('#acd5').hide();
+                        $('#acd6').hide();
+                        $('#acd7').hide();
+                }
+                else if($('#fournisseur_form_tu_es option:selected').val() == "Bénéficiare du RSA ou de l'ASS") {
+                        $('#acd3').toggle();
+                        $('#acd2').hide();
+                        $('#acd1').hide();
+                        $('#acd4').hide();
+                        $('#acd5').hide();
+                        $('#acd6').hide();
+                        $('#acd7').hide();
+                }
+                 else if($('#fournisseur_form_tu_es option:selected').val() == "Demandeur d'emploi indemnisé") {
+                        $('#acd4').toggle();
+                        $('#acd2').hide();
+                        $('#acd3').hide();
+                        $('#acd1').hide();
+                        $('#acd5').hide();
+                        $('#acd6').hide();
+                        $('#acd7').hide();
+                }
+                 else if($('#fournisseur_form_tu_es option:selected').val() == "Personne de - de 30ans non indemnisée") {
+                        $('#acd5').toggle();
+                        $('#acd2').hide();
+                        $('#acd3').hide();
+                        $('#acd4').hide();
+                        $('#acd1').hide();
+                        $('#acd6').hide();
+                        $('#acd7').hide();
+                }
+
+                 else if($('#fournisseur_form_tu_es option:selected').val() == "Personne de - de 3Oans reconnue handicapée") {
+                        $('#acd6').toggle();
+                        $('#acd2').hide();
+                        $('#acd3').hide();
+                        $('#acd4').hide();
+                        $('#acd5').hide();
+                        $('#acd1').hide();
+                        $('#acd7').hide();
+                }
+                 else if($('#fournisseur_form_tu_es option:selected').val() == "Personne céant une entreprise en ZUS") {
+                        $('#acd7').toggle();
+                        $('#acd2').hide();
+                        $('#acd3').hide();
+                        $('#acd4').hide();
+                        $('#acd5').hide();
+                        $('#acd6').hide();
+                        $('#acd1').hide();
+                }
+                
+            });
+
+           
+
+        });
+
+        $("#fournisseur_form_accre_1").click(function(){
+           $('#accre').hide();
+           tu_es=false;
+        });
+
+        
+
+         $("#fournisseur_form_ressortissant_hors_UE_1").click(function(){
+            $("#r_ue").hide();
+            ru_e=false;
+           
+            
+        });
+        $("#fournisseur_form_ressortissant_hors_UE_0").click(function(){
+            $("#r_ue").show();
+            ru_e=true;
+          
+        });
+
+
+
+         $("#suv1").click(function () {
+             //test= $('#fournisseur_form_nom_pere').val() ;
+             //$("#nom").val(test);          
+           
+            if($("#fournisseur_form_adresseF").val() == ''){
+                 $("#fournisseur_form_adresseF").focus();
+            }
+
+            else if($("#fournisseur_form_numero_securiteSociale").val() == ''){
+             $("#fournisseur_form_numero_securiteSociale").focus();
+            }
+
+            else if($("#fournisseur_form_nom_pere").val() == ''){
+             $("#fournisseur_form_nom_pere").focus();
+            }
+
+            else if($("#fournisseur_form_prenom_pere").val() == ''){
+             $("#fournisseur_form_nom_pere").focus();
+            }
+
+            else if($("#fournisseur_form_nom_mere").val() == ''){
+             $("#fournisseur_form_nom_mere").focus();
+            }
+
+            else if($("#fournisseur_form_prenom_mere").val() == ''){
+             $("#fournisseur_form_nom_mere").focus();
+            }
+
+            else if(situation == false){
+             $("#fournisseur_form_situation").focus();
+            }
+
+
+             else if (genre == false){
+             $("#fournisseur_form_genre").focus();
+            }
+
+            else if(etablissement == false){
+             $("#fournisseur_form_etablissement_UE").focus();
+            }
+
+            else if(ressortissant == false){
+             $("#fournisseur_form_ressortissant_hors_UE").focus();
+            }
+           
+
+            else if(ru_e == true  && $("#fournisseur_form_numero_titre_sejour").val() == ''){
+            $("#fournisseur_form_numero_titre_sejour").focus();
+            }  
+        
+            else if(ru_e == true  && $("#fournisseur_form_departement_delivrance").val() == ''){
+                $("#fournisseur_form_departement_delivrance").focus();
+
+            }     
+             else if(ru_e == true  && $("#fournisseur_form_ville_delivrance").val() == ''){
+                    $("#fournisseur_form_ville_delivrance").focus();
+            }     
+               
+
+            else if(activite == false){
+             $("#fournisseur_form_activite_salarie").focus(); 
+            }
+             
+
+             else{
+
+
+                $('#2emP').toggle();
+                $('#1erP').hide();
+                $('#3emP').hide();
+                $('#4emP').hide();
+
+             }
+
+
+        });
+
+        $("#pre1").click(function () {
+            $('#1erP').toggle();
+            $('#2emP').hide();
+            $('#3emP').hide();
+            $('#4emP').hide();
+
+        });
+
+
+        $("#suv2").click(function () {
+         document.getElementById('fournisseur_form_ci').style = "";
+         document.getElementById('fournisseur_form_justificatif_domicile').style = "";
+         document.getElementById('fournisseur_form_signature').style = "";
+
+        if($("#fournisseur_form_ci").val() == ''){
+            document.getElementById('fournisseur_form_ci').style = "bordr:4px solid;color:#FF0000;";
+            $("#fournisseur_form_ci").focus();
+        }
+
+
+        else if($("#fournisseur_form_justificatif_domicile").val() == ''){
+            document.getElementById('fournisseur_form_justificatif_domicile').style = "bordr:4px solid;color:#FF0000;";
+            $("#fournisseur_form_justificatif_domicile").focus();
+        }
+
+        else if($("#fournisseur_form_signature").val() == ''){
+             document.getElementById('fournisseur_form_signature').style = "bordr:4px solid;color:#FF0000;";
+            $("#fournisseur_form_signature").focus();
+        }
+
+
+        else{
+
+            $('#3emP').toggle();
+            $('#1emP').hide();
+            $('#2emP').hide();
+            $('#4emP').hide();
+        }
+
+
+        });
+
+        $("#pre2").click(function () {
+            $('#2emP').toggle();
+            $('#1erP').hide();
+            $('#3emP').hide();
+            $('#4emP').hide();
+
+        });
+
+        $("#suv3").click(function(){
+            if(is_available == false){
+             $("#fournisseur_form_is_available").focus();
+            }
+
+            else if(_agreeTerms == false){
+             $("#fournisseur_form_agreeTerms").focus();
+            }
+
+
+            else{
+                $('#4emP').toggle();
+                $('#1erP').hide();
+                $('#2emP').hide();
+                $('#3emP').hide();
+            }
+        });
+
+         $("#pre3").click(function () {
+            $('#3emP').toggle();
+            $('#2emP').hide();
+            $('#1erP').hide();
+            $('#4emP').hide();
+
+        });
+
+         $("#save").click(function () {
+
+             if( tu_es == true && $("#fournisseur_form_tu_es").val() == ''){
+                  $("#fournisseur_form_tu_es").focus(); 
+                  return false;       
+            }      
+
+       
+
+        });
+
+
+
+
+</script>
+
+<script>
+ $(document).ready(function() {
+   //test= $('#fournisseur_form_nom_pere').val() ;
+    //console.log(test);
+   
+}); 
+</script>  
+{% endblock %}

@@ -1,0 +1,114 @@
+<!-- Begin Page Content -->
+
+
+ <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Missions</h1>
+                </div>
+
+
+
+<div class="table-users">
+    
+    <table id='sTable' cellspacing="0" class="mb-3">
+        <thead>
+        <tr>
+            <th>Numéro Mission</th>
+
+            <th>Titre mission</th>
+            <th>Date debut mission</th>
+            <th>Date fin mission</th>
+            <th>Horaire</th>
+            <th>heure pause</th>
+            <th>horaire</th>
+
+
+            <th>Nombre d'heures</th>
+            <th>Validation</th>
+            <th>Nombre jobber</th>
+
+
+            <th>Adresse</th>
+            <th>Adresse suplimentaire</th>
+
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Telephone</th>
+            <th id="1erP">Email</th>
+            <th>Equipement</th>
+            <th>Permis</th>
+            <th>Informations detaillées</th>
+
+            <th>Statut</th>
+
+
+        </tr>
+        </thead>
+
+        {% for  b in displayMissionAttr %}
+            <tr>
+                <td> {{ b.idMissionsAttr }} </td>
+                <td> {{ b.idMissionsAttr.getObjetMissions() }} </td>
+                <td>{{ b.dateDebutMissionsRl ? b.dateDebutMissionsRl|date('d-m-Y ') : '' }}</td>
+                <td>{{ b.dateFinMissionsRl ? b.dateFinMissionsRl|date('d-m-Y') : '' }}</td>
+
+                <td>{{ b.idMissionsAttr.getHeuresDebutMissions()? b.idMissionsAttr.getHeuresDebutMissions()|date('H:i') : '' }}</td>
+
+                <td>
+                {{ b.idMissionsAttr.getHeuresDebutPause() ? b.idMissionsAttr.getHeuresDebutPause()|date('H:i') : '' }} à
+                {{ b.idMissionsAttr.getHeureFinPause() ? b.idMissionsAttr.getHeureFinPause()|date('H:i') : '' }}
+
+                </td>
+
+
+                <td>{{ b.idMissionsAttr.getHeuresFinMissions() ? b.idMissionsAttr.getHeuresFinMissions()|date('H:i') : '' }}</td>
+
+
+                <td> {{ b.getNbHeures() }}</td>
+                <td>  {{ b.getValidNbHeure() }}</td>
+                <td>{{ b.idMissionsAttr.nombreJobber }}</td>
+
+
+                <td>{{ b.idMissionsAttr.getAdresseContact() }}</td>
+                <td>{{ b.idMissionsAttr.infoSuplementaires }}</td>
+
+                <td> {{ b.idMissionsAttr.nomContact }}</td>
+                <td> {{ b.idMissionsAttr.prenomContact }}</td>
+                <td> {{ b.idMissionsAttr.telContact }}</td>
+                <td> {{ b.idMissionsAttr.emailContact }}</td>
+
+                <td>{{ b.idMissionsAttr.equipement }}</td>
+
+                <td>{{ b.idMissionsAttr.getPermisMission() }}</td>
+                <td>{{ b.idMissionsAttr.detailSuplimentaire }}</td>
+
+                {#   <td>
+                       <a href="{{ path('admin_missions_attr_show', {'id': missions_attr.idMissionsAttr}) }}">show</a>
+                       <a href="{{ path('admin_missions_attr_edit', {'id': missions_attr.idMissionsAttr}) }}">edit</a>
+                   </td>#}
+
+            </tr>
+
+        {% endfor %}
+
+
+    </table>
+</div>
+
+
+{% block javascripts %}
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <script>
+        $('#table-users').editableTableWidget();
+    </script>
+{% endblock %}

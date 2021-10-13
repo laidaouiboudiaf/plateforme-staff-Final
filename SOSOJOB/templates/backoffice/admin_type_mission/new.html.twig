@@ -1,0 +1,11 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Nouveau Type de Mission{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un Nouveau type de Mission</h1>
+
+    {{ include('backoffice/admin_type_mission/_form.html.twig') }}
+<br>
+    <a class="btn btn-primary" href="{{ path('admin_type_mission_index') }}">back to list</a>
+{% endblock %}

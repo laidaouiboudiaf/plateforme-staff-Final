@@ -1,0 +1,84 @@
+{% apply inline_css(source("@mail/bootstrap.min.css"),source("@mail/all.css"),source("@mail/mail.css")) %}
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+    </head>
+    <style type="text/css">
+        body{background-color: #D5D8DC;}
+    </style>
+    <body>
+    <table border="0" width="50%" style="margin:auto;padding:30px;border:60px solid #D5D8DC;">
+        <tr>
+            <table border="0" width="100%">
+                <tr>
+                    <td>
+                        {# '@images/' refers to the Twig namespace defined earlier #}
+                        <a href="{{ url('home') }}"> <img src="{{ email.image('@logos/sosj.png') }}" alt="Logo" style="width:50px;"> </a>
+
+                    </td>
+                    <td>
+                        <p style="text-align: right;"><a href="#" target="_blank" style="text-decoration: none;)"> </a></p>
+                    </td>
+                </tr>
+            </table>
+        </tr>
+        <tr>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" style="text-align:center;width:100%;background-color: #fff;">
+                    <tr>
+                        <td style="background-color:#00bfff;height:100px;font-size:50px;color:#fff;"><img src="{{ email.image('@logos/header.png') }}" alt="logo" style="width:100%;height:170px;"></td>
+                    </tr>
+
+                    <br>
+                    <tr>
+                        <td>
+
+                            <p>
+                                Pour réinitialiser votre mot de passe, veuillez clicker sur  le lien suivant: <br>
+                                Ce lien expirera dans les {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }} (s).
+                            </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <br>
+                            <a href="{{ url('app_reset_password', {token: resetToken.token}) }}" style="text-decoration: none; margin:10px 0px 30px 0px;border-radius:4px;padding:10px 20px;border: 0;color:#fff;background-color:#ffbf00;">Réinitialiser votre mot de passe</a>
+                            <br>
+                            <br>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr style="background: #D5D8DC;">
+            <td>
+                <table border="0" width="100%" style=" background: #D5D8DC; text-align:center;">
+                    <tr>
+                        <td>
+                            <h3 style="margin-top:10px;"> </h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="margin-top:20px;">
+                                <a href="#" style="text-decoration: none;"><span class="link" style="padding:10px 9px;background-color:#4099FF;color:#fff;border-radius:50%;"><img src="{{ email.image('@logos/linke.png') }}" style="height:20px;width:20px;"></span></a>
+                                <a href="#" style="text-decoration: none;"><span class="fb" style="padding:10px 9px;background-color: #3B5998;color:#fff;border-radius:50%;"><img src="{{ email.image('@logos/fb.png') }}" style="height:20px;width:20px;"></span></a>
+                                <a href="mailto:contac@sosjob.fr" style="text-decoration: none;"><span class="msg" style="padding:10px 9px;background-color: #FFC400;color:#fff;border-radius:50%;"><img src="{{ email.image('@logos/enve.png') }}" style="height:20px;width:20px;"> </span></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div style="margin-top: 20px;">
+                                <span style="font-size:12px;">Email envoyer par SOS JOB</span><br>
+                                <span style="font-size:12px;">Copyright © 2021 SOS JOB L'emploi De Demain</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </body>
+    </html>
+{% endapply %}

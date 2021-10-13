@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<title>InfosLogiciels</title>
+
+{% block body %}
+    <h1>InfosLogiciels</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>NomLogiciel</th>
+                <td>{{ infos_logiciel.nomLogiciel }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ infos_logiciel.niveau }}</td>
+            </tr>
+            <tr>
+                <th>IdLogiciels</th>
+                <td>{{ infos_logiciel.idLogiciels }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_logiciels_index') }}">back to list</a>
+
+    <a href="{{ path('admin_logiciels_edit', {'idLogiciels': infos_logiciel.idLogiciels}) }}">edit</a>
+
+    {{ include('backoffice/admin_logiciels/_delete_form.html.twig') }}
+{% endblock %}

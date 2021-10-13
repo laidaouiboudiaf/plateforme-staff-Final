@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<title>InfosBancairesF index</title>
+
+{% block body %}
+    <h1>InfosBancairesF index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>TitulaireDuCompte</th>
+                <th>Iban</th>
+                <th>IdBancairesF</th>
+                <th>Siret</th>
+                <th>Actions </th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for infos_bancaires_f in infos_bancaires_fs %}
+            <tr>
+                <td>{{ infos_bancaires_f.titulaireDuCompte }}</td>
+                <td>{{ infos_bancaires_f.iban }}</td>
+                <td>{{ infos_bancaires_f.idBancairesF }}</td>
+                <td>{{ infos_bancaires_f.SIRET }}</td>
+
+                <td>
+                    <a href="{{ path('admin_bancaire_fr_show', {'idBancairesF': infos_bancaires_f.idBancairesF}) }}">show</a>
+                    <a href="{{ path('admin_bancaire_fr_edit', {'idBancairesF': infos_bancaires_f.idBancairesF}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_bancaire_fr_new') }}">Create new</a>
+{% endblock %}

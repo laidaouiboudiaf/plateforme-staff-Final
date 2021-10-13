@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<title>MissionsAttr</title>
+
+{% block body %}
+    <h1>MissionsAttr</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>DateDebutMissionsRl</th>
+                <td>{{ missions_attr.dateDebutMissionsRl ? missions_attr.dateDebutMissionsRl|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateFinMissionsRl</th>
+                <td>{{ missions_attr.dateFinMissionsRl ? missions_attr.dateFinMissionsRl|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{{ missions_attr.statut }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('dash_admin') }}">back to list</a>
+
+    <a href="{{ path('admin_missions_attr_edit', {'id': missions_attr.idMissionsAttr}) }}">edit</a>
+
+    {{ include('backoffice/admin_missions_attr/_delete_form.html.twig') }}
+{% endblock %}

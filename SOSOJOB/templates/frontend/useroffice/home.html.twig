@@ -1,0 +1,638 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}
+    SOS JOB - L'emploi de demain
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ml-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#jobers">Jobers</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#companies">Entreprises</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">En savoir plus</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#jobs">Postes</a></li>
+                    {#<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Témoignages</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#clients">Partenaires</a></li>#}
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contactez nous</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+
+
+    <header class="masthead">
+        <div class="container">
+            <div class="text-left">
+                <div class="masthead-subheading">L'emploi de demain</div>
+                <div class="masthead-heading text-uppercase">SOS JOB</div>
+                <div class="row">
+                    <div class="col-xl-3 align-self-center">
+                        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger mt-5 py-00" href="{{ path('login') }}">Se Connecter</a>
+                    </div>
+
+                    <div class="col-xl-3 align-self-center">
+                        <a class="btn btn-secondary btn-xl text-uppercase js-scroll-trigger mt-5  py-00" href="{{ path('register')}}"> S'inscrire </a>
+                    </div>
+                </div>
+
+                {# <div class="col-md-9">
+                    <div class="row my-3">
+                        <a class="btn btn-secondary btn-xl text-uppercase" href="{{ path('register', {compte: 'fournisseur'}) }}">Je Souhaite travailler</a>
+                    </div>
+                    <div class="row my-3">
+                        <a class="btn btn-secondary btn-xl text-uppercase" href="{{ path('register', {compte: 'client'}) }}">Je recherche du renfort</a>
+                    </div>
+                </div> #}
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <!-- Jobers-->
+    <section class="page-section" id="jobers">
+        <div class="container">
+            <div class="text-left">
+                <h2 class="section-heading text-uppercase">Jobers</h2>
+                <hr class="title-underline"/>
+                <h3 class="section-subheading text-muted">Vous voulez travailler de manière flexible avec une bonne rémunération, devenez Jober
+                </h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                <span class="fa-stack fa-3x">
+                    <i class="fa fa-circle fa-stack-2x text-blue"></i>
+                    <strong class="fa-stack-1x text-white" style="margin-top: .2em;">1</strong>
+                </span>
+                </div>
+                <div class="col-md-4">
+                <span class="fa-stack fa-3x">
+                    <i class="fa fa-circle fa-stack-2x text-blue"></i>
+                    <strong class="fa-stack-1x text-white" style="margin-top: .2em;">2</strong>
+                </span>
+                </div>
+                <div class="col-md-4">
+                <span class="fa-stack fa-3x">
+                    <i class="fa fa-circle fa-stack-2x text-blue"></i>
+                    <strong class="fa-stack-1x text-white" style="margin-top: .2em;">3</strong>
+                </span>
+                </div>
+            </div>
+            <div class="row text-center align-items-center">
+                <div class="col-md-4">
+                    <h4 class="my-3">Créer ton profil Auto-entrepreneur</h4>
+                    <hr/>
+                    <p class="text-muted">Nous faisons toute les démarche pour toi, renseigne juste un formulaire.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="my-3">Accepte les demandes missions</h4>
+                    <hr/>
+                    <p class="text-muted">Tu es libre d’accepter ou non tes missions, gérer ton planning comme tu en as envie.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="my-3"> Encaisse ton<br> argent </h4>
+
+                    <hr/>
+                    <p class="text-muted">Renseigne ton rib afin de recevoir ta rémunération, notre service est gratuit</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger mt-5" href="{{ path('register') }}">Devenez jober</a>
+            </div>
+        </div>
+    </section>
+
+    <!--Entre prises -->
+    <section class="page-section bg-light" id="companies">
+        <div class="container">
+            <div class="text-left">
+                <h2 class="section-heading text-uppercase">Entreprises</h2>
+                <hr class="title-underline"/>
+                <h3 class="section-subheading text-muted">Vous avez besoin de renfort, vous recherchez une main d’oeuvre efficace et rapide pour pouvoir continuer votre activité, alors SOS JOB correpond à vos besoins.</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                <span class="fa-stack fa-3x">
+                    <i class="fa fa-circle fa-stack-2x text-blue"></i>
+                    <strong class="fa-stack-1x text-white" style="margin-top: .2em;">1</strong>
+                </span>
+                </div>
+                <div class="col-md-4">
+                <span class="fa-stack fa-3x">
+                    <i class="fa fa-circle fa-stack-2x text-blue"></i>
+                    <strong class="fa-stack-1x text-white" style="margin-top: .2em;">2</strong>
+                </span>
+                </div>
+                <div class="col-md-4">
+                <span class="fa-stack fa-3x">
+                    <i class="fa fa-circle fa-stack-2x text-blue"></i>
+                    <strong class="fa-stack-1x text-white" style="margin-top: .2em;">3</strong>
+                </span>
+                </div>
+            </div>
+            <div class="row text-center align-items-center">
+                <div class="col-md-4">
+                    <h4 class="my-3">Créer ton profil entreprise</h4>
+                    <hr/>
+                    <p class="text-muted">En deux minutes seulement avec un siret.</p>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="my-3">Dépose ta demande de mission</h4>
+                    <hr/>
+                    <p class="text-muted">Poste ta mission détaillée et reçoit un devis .</p>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="my-3">Reçois ta main d'oeuvre</h4>
+                    <hr/>
+                    <p class="text-muted">Tu n’as plus qu’à accueillir ta main d’oeuvre.</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger mt-5" href="{{ path('register') }}">Commencez ici</a>
+            </div>
+        </div>
+    </section>
+    <!-- About-->
+    <section class="page-section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img class="mx-auto img-fluid" src="assets/img/about/1.png" alt="">
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-left">
+                        <h2 class="section-heading text-uppercase">Comment ça marche ?</h2>
+                        <hr class="title-underline mb-5"/>
+                    </div>
+                    <h4 class="my-2">Pourquoi utiliser SOS JOB ?</h4>
+                    <div class="row text-left">
+                        <div class="col-md-6">
+                            <p class="text-muted"> SOS JOB c’est une solution adaptée aux besoins de chacun, si vous êtes une entreprise vous pouvez trouver du renfort pour vos pics d’activité rapidement avec une solution légale et si vous êtes auto-entrepreneur vous pouvez trouver du travail en deux trois clics.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-muted"> SOS JOB vérifie tous les profils en amont : statuts, diplôme, motivations, compétences… Nous nous occupons de toute la partie administrative.</p>
+                        </div>
+                    </div>
+                    {#<div class="row text-left">
+                    <div class="col-md-6">
+                        <p class="text-muted">SOS JOB vérifie tous les profils en amont : leurs statuts, leur diplôme, leur motivation, leur compétence et leur sérieux.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted">SOS JOB s’occupe de tout, contrat, facturation, paiement.</p>
+                    </div>
+                </div>#}
+                    <h4 class="my-2">Explication du statut</h4>
+                    <div class="row text-left">
+                        <div class="col-md-6">
+                            <p class="text-muted">Nos Jobers (auto-entrepreneur) sont tous des prestataires habilités à effectuer des prestations de service. C’est une forme de travail légal en France, pas besoin de se justifier pour y avoir recours contrairement à l’intérim.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="text-muted">C’est en fait une mini-entreprise, il faudra donc payer l’auto-entrepreneur via une facture émise par SOS JOB.</p>
+                        </div>
+                    </div>
+                    {#  <div class="row text-left">
+                    <div class="col-md-6">
+                        <p class="text-muted">De plus, vous n’êtes pas tenu de fournir à l’entrepreneur le matériel de sécurité.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted">Ainsi, il n’y a pas de TVA à payer sur les factures d’un auto entrepreneur, sauf exception.</p>
+                    </div>
+                </div>
+                </div>#}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Postes-->
+    <section class="page-section bg-light" id="jobs">
+        <div class="container">
+            <div class="text-left">
+                <h2 class="section-heading text-uppercase">Les postes à pourvoir dès maintenant</h2>
+                <hr class="title-underline mb-5"/>
+            </div>
+            <h4 class="my-2">Coffreur</h4>
+            <div class="row text-left">
+                <div class="col-md-8">
+                    <p class="text-muted">Mission : 21 jours  </p>
+                    <p class="text-muted">Réaliser l'ossature en béton armé sur un chantiers de construction de bâtiments à usage d'habitation. Mise en place des coffrages et moules ainsi que de leur étaiement.</p>
+                </div>
+                {# <div class="col-md-2 text-right">
+                <a class="btn btn-secondary btn-lg text-uppercase js-scroll-trigger" href="#">Détails</a>
+            </div>#}
+            </div>
+            <hr/>
+            <h4 class="my-2">Homme trafic</h4>
+            <div class="row text-left">
+                <div class="col-md-8">
+                    <p class="text-muted">Mission : 6 mois </p>
+                    <p class="text-muted">Vous serez en relation permanente avec le chef de la logistique du chantier et sécurise la zone de manœuvre des livraisons du chantier. Vous régulerez la circulation pour éviter de bloquer le chantier et l'attente des camions de livraison.
+                    </p>
+                </div>
+                {#<div class="col-md-2 text-right">
+                <a class="btn btn-secondary btn-lg text-uppercase js-scroll-trigger" href="#">Détails</a>
+            </div>#}
+            </div>
+            <hr/>
+            {# <h4 class="my-2">Maçonnerie</h4>
+        <div class="row text-left">
+            <div class="col-md-8">
+                <p class="text-muted">Mission : 6 mois – Salaire: 2500€/mois – 5 ans d’expérience</p>
+                <p class="text-muted">Vous interviendrez sur Paris et sa région, sur des chantiers privés auprès de particuliers dans des milieux occupés ou inoccupé.</p>
+                <p class="text-muted">Le carreleur (ou « carreleur mosaïste ») :</p>
+                <ul>
+                    <li class="text-muted">prépare les surfaces à carreler</li>
+                    <li class="text-muted">construit si nécessaire socles ou tablettes</li>
+                    <li class="text-muted">en cas de rénovation, enlève le revêtement existant</li>
+                </ul>
+            </div>
+            <div class="col-md-2 text-right">
+                <a class="btn btn-secondary btn-lg text-uppercase js-scroll-trigger" href="#">Détails</a>
+            </div>
+        </div>
+        <hr/>
+        <h4 class="my-2">Nettoyage grande surface</h4>
+        <div class="row text-left">
+            <div class="col-md-8">
+                <p class="text-muted">Durée : Indéfinis  – Salaire : 1900€/mois – 2 ans d’expérience</p>
+                <p class="text-muted">Nous sommes une entreprise de nettoyage intervenant sur l’Ile de France basée en Seine Saint Denis. Nous recherchons un ouvrier nettoyeur (H/F) possédant au moins deux ans d’expérience. Le ménage est à effectuer dans des parties communes d’immeubles ou des bureaux.</p>
+            </div>
+            <div class="col-md-2 text-right">
+                <a class="btn btn-secondary btn-lg text-uppercase js-scroll-trigger" href="#">Détails</a>
+            </div>
+        </div>
+        <hr class="mb-5"/>
+        <div class="row text-left">
+            <div class="col-md-4">
+                <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#">Postes à pourvoir</a>
+            </div>
+        </div>
+            #}
+        </div>
+    </section>
+    {#
+    <!-- Team-->
+    <section class="page-section bg-light" id="team">
+        <div class="container">
+            <div class="text-left">
+                <h2 class="section-heading text-uppercase">Leurs témoignages</h2>
+                <hr class="title-underline mb-5"/>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="assets/img/team/1.jpg" alt="" />
+                        <h4>Jenny Harisson</h4>
+                        <p class="text-muted">Maçon / Carreleur</p>
+                        <a class="btn btn-secondary btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-secondary btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-secondary btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto text-left">
+                <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde......</p>
+                </div>
+                <div class="col-lg-3">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="assets/img/team/2.jpg" alt="" />
+                        <h4>Blake Chapman</h4>
+                        <p class="text-muted">Chef de chantier</p>
+                        <a class="btn btn-secondary btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-secondary btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-secondary btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto text-left">
+                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde......</p>
+                </div>
+            </div>
+        </div>
+    </section> #}
+    {#
+    <!-- Clients-->
+    <section class="page-section" id="clients">
+        <div class="container">
+            <div class="text-left">
+                <h2 class="section-heading text-uppercase">Ces entreprises nous on fait confiance</h2>
+                <hr class="title-underline mb-5"/>
+            </div>
+            <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lobortis purus sed risus euismod, ac accumsan lectus congue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce quis mauris turpis. Nulla non massa eget quam gravida auctor. Praesent eget dignissim orci. Praesent nec posuere tortor. Curabitur non imperdiet justo. Mauris faucibus enim urna, in tempus neque gravida vestibulum.</p>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/envato.jpg" alt="" /></a>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/designmodo.jpg" alt="" /></a>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/themeforest.jpg" alt="" /></a>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#!"><img class="img-fluid d-block mx-auto" src="assets/img/logos/creative-market.jpg" alt="" /></a>
+                </div>
+            </div>
+        </div>
+    </section>#}
+    <!-- Contact-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            {# <div class="text-left">
+                <h2 class="section-heading text-uppercase mb-5">Contactez Nous</h2>
+            </div>#}
+            <form id="contactForm" name="sentMessage" novalidate="novalidate">
+               {# <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="name" type="text" placeholder="Nom *" required="required" data-validation-required-message="Veuillez entrer votre nom." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="email" type="email" placeholder="Email *" required="required" data-validation-required-message="Veuillez entrer votre adresse email." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <input class="form-control" id="phone" type="tel" placeholder="Téléphone *" required="required" data-validation-required-message="Veuillez entrer votre numéro de téléphone." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <textarea class="form-control" id="message" placeholder="Votre Message *" required="required" data-validation-required-message="Veuillez entrer votre message."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                </div>#}
+                <div class="text-center">
+                    <div id="success"></div>
+                    <a href="mailto:contact@sosjob.fr" class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Contactez Nous</a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Footer-->
+    <footer class="footer py-4  text-uppercase">
+        <div class="container">
+            <div class="row align-items-center ">
+                <div class="col-lg-3 text-lg-left">
+                    <h6>Sos Job</h6>
+                    <div class="mt-3">
+                        <a class="link-dark"  href="{{ path('login') }}">se connecter</a><br>
+                        <a class="link-dark"  href="{{ path('register')}}">Inscription  </a><br>
+                        <a class="link-dark"  href='{{ path('faq_entreprise')}}' target='_blank'>FAQ Entreprises</a><br>
+                        <a class="link-dark"  href='{{ path('faq_fournisseur')}}' target='_blank'>FAQ Jober </a><br>
+                    </div>
+                </div>
+                <div class="col-lg-3 text-lg-left">
+                    <h6> Découvrir </h6>
+                    <div class="mt-3">
+                        <a class="link-dark"  href="{{ path('Blog') }}">Blog </a><br>
+                        <a class="link-dark"  href="#contact">Contact</a><br>
+                        <a></a><br>
+                        <a></a><br>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 text-lg-left">
+                    <h6> Resources </h6>
+                    <div class="mt-3">
+                        <a class="link-dark"  href='{{ path('mentions_legales') }}' target='_blank'>Mentions Légales </a><br>
+                        <a class="link-dark"  href='{{ path('conditions') }}'_blank'>Conditions Générales </a><br>
+                        <a class="link-dark"  href='{{ path('donneespers') }}' target='_blank'>Données Personelles</a><br>
+                        <a class="link-dark"  href='/blog/img/M-F.pdf' download="Mandat-De-Faturation.pdf">Mandat de Facturation</a><br>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 my-3 my-lg-0">
+                    <h6> Réseaux Sociaux </h6>
+                    <div class="mt-3">
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a><br>
+                        <a></a><br>
+                        <a></a><br>
+                        <a></a><br>
+                    </div>
+                </div>
+                {# <div class="col-lg-5 text-lg-right">
+                <a class="mr-3" href="#!">Politique de confidentialité</a>
+                <a href="#!">Conditions d'utilisation</a>
+            </div>#}
+            </div>
+        </div>
+    </footer>
+    <!-- Portfolio Modals-->
+    <!-- Modal 1-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/01-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Threads</li>
+                                    <li>Category: Illustration</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 2-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/02-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Explore</li>
+                                    <li>Category: Graphic Design</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 3-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/03-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Finish</li>
+                                    <li>Category: Identity</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 4-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/04-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Lines</li>
+                                    <li>Category: Branding</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 5-->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/05-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Southwest</li>
+                                    <li>Category: Website Design</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 6-->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/06-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Window</li>
+                                    <li>Category: Photography</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    <!-- Contact form JS-->
+    <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script>
+
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+{% endblock %}

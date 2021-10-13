@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit MissionsAttr</title>
+
+{% block body %}
+    <h1>Edit MissionsAttr</h1>
+
+    {{ include('backoffice/admin_missions_attr/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_missions_attr_index') }}">back to list</a>
+
+    {{ include('backoffice/admin_missions_attr/_delete_form.html.twig') }}
+{% endblock %}

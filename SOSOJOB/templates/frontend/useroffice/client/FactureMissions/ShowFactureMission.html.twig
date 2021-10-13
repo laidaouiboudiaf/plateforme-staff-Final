@@ -1,0 +1,83 @@
+<!-- Begin Page Content -->
+
+
+<div  id="container">
+    <div class="card-header py-3" style="background: rgba(36,90,192,0.98)">
+        <h6 class="m-1 font-weight-bold fs-5 text-center text-white"><i class="fas fa-address-card"></i> Mes factures</h6>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr class="cart text-dark" style="background: #fdfdfe">
+
+
+            <th>Numéro Mission</th>
+
+            <th>Titre mission</th>
+            <th>Date debut mission</th>
+            <th>Date fin mission</th>
+            <th>Le montant de la prestation</th>
+
+            <th>La facture</th>
+
+        </thead>
+
+        </tr>
+        {% for  b in displayMissionAttr %}
+            <tr>
+                <td> {{ b.idMissionsAttr }} </td>
+                <td> {{ b.idMissionsAttr.getObjetMissions() }} </td>
+                <td>{{ b.dateDebutMissionsRl ? b.dateDebutMissionsRl|date('Y-m-d ') : '' }}</td>
+                <td>{{ b.dateFinMissionsRl ? b.dateFinMissionsRl|date('Y-m-d ') : '' }}</td>
+                <td> {{ b.getMontantPrestation() }}</td>
+                {% if b.facture is empty %}
+                    <td><a class="btn btn-danger" href="#">En cours </a>
+
+                {% else %}
+                    <td>
+                        <a class="btn btn-primary" href="{{ asset('uploads/factures/' ~ b.facture) }}">View
+                            (PDF)</a></td>
+                {% endif %}
+
+
+
+
+                {#   <td>
+                       <a href="{{ path('admin_missions_attr_show', {'id': missions_attr.idMissionsAttr}) }}">show</a>
+                       <a href="{{ path('admin_missions_attr_edit', {'id': missions_attr.idMissionsAttr}) }}">edit</a>
+                   </td>#}
+
+            </tr>
+
+        {% endfor %}
+        </tr>
+        <tbody>
+
+        </tbody>
+
+    </table>
+</div>
+</div>
+<div class="card-footer">
+    <div class="mb-3">
+
+
+        <a class="btn btn-secondary" href="{{ path('mission') }}"> ->Mes missions</a>
+
+    </div>
+</div>
+</div>
+<br><br><br>
+
+{% block javascripts %}
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+{% endblock %}

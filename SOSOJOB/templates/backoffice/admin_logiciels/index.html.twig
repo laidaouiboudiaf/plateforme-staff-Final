@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<title>InfosLogiciels index</title>
+
+{% block body %}
+    <h1>InfosLogiciels index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NomLogiciel</th>
+                <th>Niveau</th>
+                <th>IdLogiciels</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infos_logiciel in infos_logiciels %}
+            <tr>
+                <td>{{ infos_logiciel.nomLogiciel }}</td>
+                <td>{{ infos_logiciel.niveau }}</td>
+                <td>{{ infos_logiciel.idLogiciels }}</td>
+                <td>
+                    <a href="{{ path('admin_logiciels_show', {'idLogiciels': infos_logiciel.idLogiciels}) }}">show</a>
+                    <a href="{{ path('admin_logiciels_edit', {'idLogiciels': infos_logiciel.idLogiciels}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_logiciels_new') }}">Create new</a>
+{% endblock %}

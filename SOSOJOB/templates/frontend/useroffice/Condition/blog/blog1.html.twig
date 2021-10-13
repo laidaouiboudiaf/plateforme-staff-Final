@@ -1,0 +1,42 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+ {% block stylesheets %}
+ 
+{% endblock %}
+{% block body %}
+    <div class="container">
+        {# {% for flashError in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %} #}
+
+        <div class="card bg-light shadow-lg p-3 m-5 bg-white rounded">
+            <img src="{{asset('blog/img/image1.png')}}"><br>
+            <div class="card-title text-center">
+                <h1> LE STATUT DE L’AUTO-ENTREPRENEUR</h1>
+            </div>
+            <div class="card-body">
+
+                <h3><li> QU’EST CE QU’UN AUTO-ENTREPRENEUR ? </h3><li>
+                Depuis le 1er Janvier 2009 le statut d’auto-entrepreneur s’applique aux personnes physiques qui créent une activité, ou à celles qui possèdent déjà une entreprise individuelle. Il peut s’agir d’une activité commerciale, artisanale ou libérale de façon principale ou complémentaires en parallèle d’une autre activité salariée. L’auto-entrepreneur est un indépendant, ce qui signifie qu’il est un travailleur non salarié. Il bénéficie d’un régime social particulier, le micro social.
+                Le statut d'auto-entrepreneur est accessible à tout le monde, que tu sois demandeur d’emploi, étudiants, au chômage, retraité ou bien salarié. L’auto-entrepreneur bénéficie également d’un statut simplifié.  L’auto-entrepreneur doit payer des cotisations sociales et son chiffre d’affaires ne doit pas dépasser certaines limites selon son domaine d’activité.
+                Néanmoins mais si le statut d’auto preneurs se dit ouvert à tous, il y’a certaines exceptions, telles que les activités rattachées au régime social de la sécurité sociale Agricole, les professions libérales ne relevant pas de la caisse de retraite de la Cipav (…).
+
+
+                    <h3><li> LES AVANTAGES DE L’AUTO ENTREPRENARIAT </li></div>
+                L'auto-entreprenariat a connu une forte augmentation depuis son arrivée, plus de 1,4 million de français sont auto-entrepreneurs. De plus en plus de personnes sont conquis par le concept. Et cela est dû aux nombreux avantages qui y sont liés. Tout d'abord le fait que le micro-entrepreneur paye des cotisations seulement s'il encaisse du chiffre d’affaires, dans le cas contraire il ne paye rien. Pas d’argent gagné, pas de cotisation payée. En tant qu’auto-entrepreneur, ils n’ont pas à supporter de comptabilité classique, ils peuvent le faire eux même, ou le payer sur un site s’ils le souhaitent. Et cela a pour but d’optimiser la gestion de leurs activités.
+
+            <h3><li> LES COTISATIONS </li></h3>
+                Il existe un taux de cotisation. La première est de 22% elle est destinée aux auto-entrepreneur qui sont dans le domaine des prestations et services manuelle et intellectuelle et la seconde est de 12,8% elle est destinée aux auto-entrepreneurs qui ont une activité de vente de marchandise ou d'hébergement de courte durée. Depuis le 1er Janvier 2019 tous les entrepreneurs bénéficient de L'ACRE (cotisation minorée pour lancer son activité). Cette diminution s'étale sur les 12 premier trimestre de l’activité soit les 3 premières années. Ce qui signifie qu'avec L’ACRE, l’auto-entrepreneur ne verse que 5,5% de son chiffre d’affaires, pour les prestations et services manuelle et Intellectuelle et 3,2% pour ceux qui sont dans le domaine de la vente et l'hébergement.
+
+
+            <h3><li> LA PROTECTION SOCIAL DE L’AUTO-ENTREPRENEUR </li></h3>
+                L’auto-entrepreneur cotise auprès de l’URSSAF, qui lui verse ces sommes aux différents organismes sociaux. Les cotisations comprennent l’assurance maladie avec un taux de 12,5%, l’assurance invalidité décès avec 2,5%, puis l’assurance vieillesse avec 50% et enfin la CSG avec un taux de 35%. Une fois ses cotisations payées, il bénéficie de la même couverture pour ses dépenses de santé qu’avec le régime de la sécurité sociale.
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+
+{% endblock %}

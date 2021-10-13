@@ -1,0 +1,12 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Edit Certification{% endblock %}
+{% block body %}
+    <h1>Editer une Certification</h1>
+
+    {{ include('backoffice/admin_certifications/_form.html.twig', {'button_label': 'Update'}) }}
+   <br>
+    <a class="btn btn-primary"  href="{{ path('admin_certifications_index') }}">back to list</a>
+
+    {{ include('backoffice/admin_certifications/_delete_form.html.twig') }}
+{% endblock %}

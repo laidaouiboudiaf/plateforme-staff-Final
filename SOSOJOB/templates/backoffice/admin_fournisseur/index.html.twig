@@ -1,0 +1,97 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Liste des fournisseurs{% endblock %}
+
+{% block body %}
+    <h1>Liste Fournisseur</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdFournisseur</th>
+                <th>AdresseF</th>
+                <th>Genre</th>
+                <th>LieuDeNaissance</th>
+                <th>Nationalite</th>
+                <th>Photo</th>
+                <th>Statut</th>
+                <th>Numero_RCS</th>
+                <th>Numero_securiteSociale</th>
+                <th>Situation</th>
+                <th>Is_available</th>
+                <th>Nom_pere</th>
+                <th>Prenom_pere</th>
+                <th>Nom_mere</th>
+                <th>Prenom_mere</th>
+                <th>Activite_salarie</th>
+                <th>Etablissement_UE</th>
+                <th>Ressortissant_hors_UE</th>
+                <th>Numero_titre_sejour</th>
+                <th>Departement_delivrance</th>
+                <th>Date_expiration_titre_sejour</th>
+                <th>Ville_delivrance</th>
+                <th>Ci</th>
+                <th>Signature</th>
+                <th>Justificatif_domicile</th>
+                <th>Accre</th>
+                <th>H_PoleEmploi</th>
+                <th>ABM</th>
+                <th>NDP</th>
+                <th>ANC</th>
+                <th>JPHD</th>
+                <th>ZUS</th>
+                <th>Tu_es</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fournisseur in fournisseurs %}
+            <tr>
+                <td>{{ fournisseur.idFournisseur }}</td>
+                <td>{{ fournisseur.adresseF }}</td>
+                <td>{{ fournisseur.genre }}</td>
+                <td>{{ fournisseur.lieuDeNaissance }}</td>
+                <td>{{ fournisseur.nationalite }}</td>
+                <td>{{ fournisseur.photo }}</td>
+                <td>{{ fournisseur.statut }}</td>
+                <td>{{ fournisseur.numeroRCS }}</td>
+                <td>{{ fournisseur.numeroSecuriteSociale }}</td>
+                <td>{{ fournisseur.situation }}</td>
+                <td>{{ fournisseur.isAvailable ? 'Yes' : 'No' }}</td>
+                <td>{{ fournisseur.nomPere }}</td>
+                <td>{{ fournisseur.prenomPere }}</td>
+                <td>{{ fournisseur.nomMere }}</td>
+                <td>{{ fournisseur.prenomMere }}</td>
+                <td>{{ fournisseur.activiteSalarie }}</td>
+                <td>{{ fournisseur.etablissementUE }}</td>
+                <td>{{ fournisseur.ressortissantHorsUE }}</td>
+                <td>{{ fournisseur.numeroTitreSejour }}</td>
+                <td>{{ fournisseur.departementDelivrance }}</td>
+                <td>{{ fournisseur.dateExpirationTitreSejour ? fournisseur.dateExpirationTitreSejour|date('Y-m-d') : '' }}</td>
+                <td>{{ fournisseur.villeDelivrance }}</td>
+                <td>{{ fournisseur.ci }}</td>
+                <td>{{ fournisseur.signature }}</td>
+                <td>{{ fournisseur.justificatifDomicile }}</td>
+                <td>{{ fournisseur.accre }}</td>
+                <td>{{ fournisseur.hPoleEmploi }}</td>
+                <td>{{ fournisseur.ABM }}</td>
+                <td>{{ fournisseur.NDP }}</td>
+                <td>{{ fournisseur.ANC }}</td>
+                <td>{{ fournisseur.JPHD }}</td>
+                <td>{{ fournisseur.ZUS }}</td>
+                <td>{{ fournisseur.tuEs }}</td>
+                <td>
+                    <a href="{{ path('admin_fournisseur_show', {'idFournisseur': fournisseur.idFournisseur}) }}">Voir</a>
+                    <a href="{{ path('admin_fournisseur_edit', {'idFournisseur': fournisseur.idFournisseur}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="35">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_fournisseur_new') }}">Nouveau Fournisseur</a>
+{% endblock %}

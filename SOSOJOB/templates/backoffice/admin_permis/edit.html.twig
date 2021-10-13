@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit InfosPermis</title>
+
+{% block body %}
+    <h1>Edit InfosPermis</h1>
+
+    {{ include('backoffice/admin_permis/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_permis_index') }}">back to list</a>
+
+    {{ include('backoffice/admin_permis/_delete_form.html.twig') }}
+{% endblock %}

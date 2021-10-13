@@ -1,0 +1,23 @@
+
+.col-md-3{
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid grey;   
+    margin-right: 15px;
+    margin-left: 20px;
+    cursor: pointer;     
+}
+
+#mapDiv {
+  height: 55vh;
+  width: 25rem;
+  background-color: #222;
+  color: #eee;
+  font-family: monospace;
+  padding: 2rem;
+
+}
+
+
+
+

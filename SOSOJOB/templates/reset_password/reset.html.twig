@@ -1,0 +1,45 @@
+{% extends './frontend/base.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+
+                            <div class="col-lg">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-2"> <h1>Réinitialiser votre mot de passe </h1></h1>
+                                    </div>
+                                    {{ form_start(resetForm) }}
+                                    {{ form_row(resetForm.plainPassword) }}
+                                    <button class="btn btn-primary mt-4">Réinitialisation</button>
+                                    {{ form_end(resetForm) }}
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="small" href="{{ path('home') }}">Retour au site</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" href="{{ path('login') }}">Se connecter</a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

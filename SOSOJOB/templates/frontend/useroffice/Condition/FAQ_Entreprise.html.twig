@@ -1,0 +1,375 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}
+    FAQ Entreprises
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ml-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#companies">Entreprises</a></li>
+                    
+                    {#<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Témoignages</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#clients">Partenaires</a></li>#}
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+
+
+    <header class="masthead">
+        <div class="container">
+            <div class="text-left">
+                <div class="masthead-heading text-uppercase">FAQ ENTREPRISE</div>
+                
+                
+
+                {# <div class="col-md-9">
+                    <div class="row my-3">
+                        <a class="btn btn-secondary btn-xl text-uppercase" href="{{ path('register', {compte: 'fournisseur'}) }}">Je Souhaite travailler</a>
+                    </div>
+                    <div class="row my-3">
+                        <a class="btn btn-secondary btn-xl text-uppercase" href="{{ path('register', {compte: 'client'}) }}">Je recherche du renfort</a>
+                    </div>
+                </div> #}
+            </div>
+        </div>
+        </div>
+    </header>
+
+  
+
+
+<div class="container">
+        {# {% for flashError in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %} #}
+        <div class="card bg-light shadow-lg p-3 m-5 bg-white rounded">
+            
+            <div class="card-body">
+
+               
+                <h4> Comment me créer un compte ? </h4>
+                C’est très simple, il vous suffit de cliquer sur le bouton « inscription ».
+                <br><br><br>
+                <h4> Avoir plusieurs comptes ? </h4>
+                Oui c’est possible, une entreprise peut avoir plusieurs comptes.
+                <br><br><br>
+                <h4> Comment sont sélectionnés les Jober ? </h4>
+                En fonction, des critères de votre annonce de mission, SOS JOB met tout en œuvre pour sélectionner le profil qui vous correspondra le mieux.
+                <br><br><br>
+                <h4> Retravailler avec un Jober </h4>
+                C’est possible, il vous suffit de la préciser lors de votre demande de mission.
+                <br><br><br>
+                <h4> Poster une mission </h4>
+                Pour poster une mission, vous devez déjà vous inscrire sur la plateforme, puis suivre les 5 étapes qui nous permets de mieux comprendre vos besoins. A la fin de la 5eme étape, vous pouvez émettre un devis qui vous sera envoyé par mail. Si celui-ci vous convient, il vous suffit de nous le retourner signer avec la mention « bon pour accord ». Nous trouverons ensuite le Jober qui convient à votre demande de mission.
+                <br><br><br>
+                <h4> Prendre contact avec un Jober ? </h4>
+                Une fois votre demande de mission effectué, nous sélectionnons un Jober qui correspond à votre besoin. Nous lui envoyons vos coordonnées et nous vous fournissons les siens.
+                <br><br><br>
+                <h4> Evaluer la mission et l'attitude d'un Jober </h4>
+                A chaque fin de mission, nous vous demandons de remplir un questionnaire de satisfaction afin de noter la mission et le comportement de votre jobber.
+                <br><br><br>
+                <h4> Interrompre ou annuler une mission </h4>
+                Vous pouvez à tout moment interrompre une mission, attention des frais de dédommagement seront appliqué.
+                <img src="/blog/img/faq1.png"><br><br>
+                 <br><br>
+
+
+                <h4> Prolonger une mission </h4>
+                Oui c’est possible, à la fin de chaque mission, vous devez réaliser un relevé d’heure afin d’avoir une facturation en adéquation avec la mission réalisée.
+                <br><br><br>
+                
+                <h4> Un Jobber annule ou ne se présent pas à la mission </h4>
+                Nous mettons tout en œuvre pour le remplacer le plus rapidement possible. La facture prendra bien en compte le désagrément subit par l’entreprise.
+                L'entreprise se voit offrir ses frais de mise en relation (commission de SOS JOB) sur la prochaine mission commandée dans la limite de 20€.
+                <br><br><br>
+                
+                <h4> Le relevé de temps </h4>
+                A chaque fin de mission vous devrez valider le relevé d’heure de votre jobber, si une anomalie est présente dans ce relevé, pourrez ajouter des commentaires. Si la validation n’est pas effectuée dans les 48 heures après la mission, les heures seront considérées comme effectué donc facturable.
+                <br><br><br>
+                
+                <h4> Les moyens et délais de paiement </h4>
+                C’est SOS JOB qui s’occupe de facturer la prestation de l’auto-entrepreneur, ces factures sont sans TVA car, l’auto-entrepreneur n’est pas redevable, sauf certain cas. SOS JOB facture aussi sa prestation de service avec de la TVA (20%).
+                Les factures des auto-entrepreneurs sont à réglé aux entrepreneurs dans le délai imparti présent sur la facture. Toutes vos factures sont consultables sur votre espace personnel. Elles vous seront aussi envoyées par mail.
+
+
+            </div>
+        </div>
+    </div>
+
+
+   
+  
+    
+    <!-- Footer-->
+    <footer class="footer py-4  text-uppercase">
+        <div class="container">
+            <div class="row align-items-center ">
+                <div class="col-lg-3 text-lg-left">
+                    <h6>Sos Job</h6>
+                    <div class="mt-3">
+                       <a class="link-dark"  href="{{ path('login') }}">se connecter</a><br>
+                        <a class="link-dark"  href="{{ path('register')}}">Inscription  </a><br>
+                        <a class="link-dark"  href='{{ path('faq_entreprise')}}' target='_blank'>FAQ Entreprises</a><br>
+                        <a class="link-dark"  href='{{ path('faq_fournisseur')}}' target='_blank'>FAQ Jober </a><br>
+                    </div>
+                </div>
+                <div class="col-lg-3 text-lg-left">
+                    <h6> Découvrir </h6>
+                    <div class="mt-3">
+                         <a class="link-dark"  href="{{ path('Blog') }}">Blog </a><br>
+                        <a class="link-dark"  href="#contact">Contact</a><br>
+                        <a></a><br>
+                        <a></a><br>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 text-lg-left">
+                    <h6> Resources </h6>
+                    <div class="mt-3">
+                         <a class="link-dark"  href='{{ path('mentions_legales') }}' target='_blank'>Mentions Légales </a><br>
+                        <a class="link-dark"  href='{{ path('conditions') }}' target='_blank'>Conditions Générales </a><br>
+                        <a class="link-dark"  href='{{ path('donneespers') }}' target='_blank'>Données Personelles</a><br>
+                        <a class="link-dark"  href='/blog/img/M-F.pdf' download="Mandat-De-Faturation.pdf">Mandat de Facturation</a><br>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 my-3 my-lg-0">
+                    <h6> Réseaux Sociaux </h6>
+                    <div class="mt-3">
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a><br>
+                        <a></a><br>
+                        <a></a><br>
+                        <a></a><br>
+                    </div>
+                </div>
+                {# <div class="col-lg-5 text-lg-right">
+                <a class="mr-3" href="#!">Politique de confidentialité</a>
+                <a href="#!">Conditions d'utilisation</a>
+            </div>#}
+            </div>
+        </div>
+    </footer>
+    <!-- Portfolio Modals-->
+    <!-- Modal 1-->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/01-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Threads</li>
+                                    <li>Category: Illustration</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 2-->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/02-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Explore</li>
+                                    <li>Category: Graphic Design</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 3-->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/03-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Finish</li>
+                                    <li>Category: Identity</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 4-->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/04-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Lines</li>
+                                    <li>Category: Branding</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 5-->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/05-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Southwest</li>
+                                    <li>Category: Website Design</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 6-->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/06-full.jpg" alt="" />
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <ul class="list-inline">
+                                    <li>Date: January 2020</li>
+                                    <li>Client: Window</li>
+                                    <li>Category: Photography</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fas fa-times mr-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+    <!-- Contact form JS-->
+    <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script>
+
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Liste Type de Mission{% endblock %}
+
+{% block body %}
+    <h1>TypeDemission index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomTypeMission</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_demission in type_demissions %}
+            <tr>
+                <td>{{ type_demission.id }}</td>
+                <td>{{ type_demission.nomTypeMission }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('admin_type_mission_show', {'id': type_demission.id}) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('admin_type_mission_edit', {'id': type_demission.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<br>
+    <a class="btn btn-success" href="{{ path('admin_type_mission_new') }}">Nouveau Type de Mission</a>
+{% endblock %}

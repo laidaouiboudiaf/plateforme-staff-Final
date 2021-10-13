@@ -1,0 +1,30 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Voir les Informations bacncaire du clients {% endblock %}
+
+{% block body %}
+    <h1>InfosBancairesC</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>TitulaireDuCompte</th>
+                <td>{{ infos_bancaires_c.titulaireDuCompte }}</td>
+            </tr>
+            <tr>
+                <th>Iban</th>
+                <td>{{ infos_bancaires_c.iban }}</td>
+            </tr>
+            <tr>
+                <th>IdBancairesC</th>
+                <td>{{ infos_bancaires_c.idBancairesC }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('admin_bancaire_clt_index') }}">back to list</a>
+
+    <a class="btn btn-warning" href="{{ path('admin_bancaire_clt_edit', {'idBancairesC': infos_bancaires_c.idBancairesC}) }}">Edit</a>
+
+    {{ include('backoffice/admin_bancaire_clt/_delete_form.html.twig') }}
+{% endblock %}

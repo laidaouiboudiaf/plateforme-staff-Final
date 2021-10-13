@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<title>InfosPermis index</title>
+
+{% block body %}
+    <h1>InfosPermis index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NomPermis</th>
+                <th>DateObtention</th>
+                <th>PaysObtention</th>
+                <th>IdPermis</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infos_permi in infos_permis %}
+            <tr>
+                <td>{{ infos_permi.nomPermis }}</td>
+                <td>{{ infos_permi.dateObtention ? infos_permi.dateObtention|date('Y-m-d') : '' }}</td>
+                <td>{{ infos_permi.paysObtention }}</td>
+                <td>{{ infos_permi.idPermis }}</td>
+                <td>
+                    <a href="{{ path('admin_permis_show', {'idPermis': infos_permi.idPermis}) }}">show</a>
+                    <a href="{{ path('admin_permis_edit', {'idPermis': infos_permi.idPermis}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_permis_new') }}">Create new</a>
+{% endblock %}

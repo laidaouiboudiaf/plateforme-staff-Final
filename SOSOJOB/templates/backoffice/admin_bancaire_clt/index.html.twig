@@ -1,0 +1,37 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}InfosBancairesC index{% endblock %}
+
+{% block body %}
+    <h1>Informations Bancaires du client</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>TitulaireDuCompte</th>
+                <th>Iban</th>
+                <th>IdBancairesC</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infos_bancaires_c in infos_bancaires_cs %}
+            <tr>
+                <td>{{ infos_bancaires_c.titulaireDuCompte }}</td>
+                <td>{{ infos_bancaires_c.iban }}</td>
+                <td>{{ infos_bancaires_c.idBancairesC }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('admin_bancaire_clt_show', {'idBancairesC': infos_bancaires_c.idBancairesC}) }}">show</a>
+                    <a class="btn btn-warning" href="{{ path('admin_bancaire_clt_edit', {'idBancairesC': infos_bancaires_c.idBancairesC}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('admin_bancaire_clt_new') }}">Créer</a>
+{% endblock %}

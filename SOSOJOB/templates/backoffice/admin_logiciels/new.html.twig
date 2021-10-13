@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<title>New InfosLogiciels</title>
+
+{% block body %}
+    <h1>Create new InfosLogiciels</h1>
+
+    {{ include('backoffice/admin_logiciels/_form.html.twig') }}
+
+    <a href="{{ path('admin_logiciels_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Edit Founisseur{% endblock %}
+
+{% block body %}
+    <h1>Editer un Fournisseur</h1>
+
+    {{ include('backoffice/admin_fournisseur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a class="btn btn-primary" href="{{ path('admin_fournisseur_index') }}">back to list</a>
+
+    {{ include('backoffice/admin_fournisseur/_delete_form.html.twig') }}
+{% endblock %}

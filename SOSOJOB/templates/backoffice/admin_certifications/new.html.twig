@@ -1,0 +1,11 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block title %}Nouvelle Certification{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle Certification</h1>
+
+    {{ include('backoffice/admin_certifications/_form.html.twig') }}
+
+    <a class="btn btn-success" href="{{ path('admin_certifications_index') }}">back to list</a>
+{% endblock %}

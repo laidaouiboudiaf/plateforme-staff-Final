@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<title>InfosFormations index</title>
+
+{% block body %}
+    <h1>InfosFormations index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NomEtablissement</th>
+                <th>DomaineEtudes</th>
+                <th>Diplome</th>
+                <th>Debut</th>
+                <th>Fin</th>
+                <th>IdFormations</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for infos_formation in infos_formations %}
+            <tr>
+                <td>{{ infos_formation.nomEtablissement }}</td>
+                <td>{{ infos_formation.domaineEtudes }}</td>
+                <td>{{ infos_formation.diplome }}</td>
+                <td>{{ infos_formation.debut ? infos_formation.debut|date('Y-m-d') : '' }}</td>
+                <td>{{ infos_formation.fin ? infos_formation.fin|date('Y-m-d') : '' }}</td>
+                <td>{{ infos_formation.idFormations }}</td>
+                <td>
+                    <a href="{{ path('admin_formations_show', {'idFormations': infos_formation.idFormations}) }}">show</a>
+                    <a href="{{ path('admin_formations_edit', {'idFormations': infos_formation.idFormations}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_formations_new') }}">Create new</a>
+{% endblock %}

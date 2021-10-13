@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit InfosLangues</title>
+
+{% block body %}
+    <h1>Edit InfosLangues</h1>
+
+    {{ include('backoffice/admin_langues/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_langues_index') }}">back to list</a>
+
+    {{ include('backoffice/admin_langues/_delete_form.html.twig') }}
+{% endblock %}

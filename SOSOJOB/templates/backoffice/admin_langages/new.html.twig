@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<title>New InfosLangages</title>
+
+{% block body %}
+    <h1>Create new InfosLangages</h1>
+
+    {{ include('backoffice/admin_langages/_form.html.twig') }}
+
+    <a href="{{ path('admin_langages_index') }}">back to list</a>
+{% endblock %}

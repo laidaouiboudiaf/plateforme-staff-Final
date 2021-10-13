@@ -1,0 +1,49 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block body %}
+    <h1>Users index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdUsers</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Num</th>
+                <th>AdresseMail</th>
+                <th>Password</th>
+                <th>IsVerified</th>
+                <th>CreatedAt</th>
+                <th>UpdateAt</th>
+                <th>Roles</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.idUsers }}</td>
+                <td>{{ user.nom }}</td>
+                <td>{{ user.prenom }}</td>
+                <td>{{ user.num }}</td>
+                <td>{{ user.adresseMail }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.isVerified ? 'Yes' : 'No' }}</td>
+                <td>{{ user.createdAt ? user.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ user.updateAt ? user.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_users_show', {'idUsers': user.idUsers}) }}">show</a>
+                    <a href="{{ path('admin_users_edit', {'idUsers': user.idUsers}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_users_new') }}">Create new</a>
+{% endblock %}

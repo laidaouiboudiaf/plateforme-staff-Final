@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+
+<title>New InfosFormations</title>
+
+{% block body %}
+    <h1>Create new InfosFormations</h1>
+
+    {{ include('backoffice/admin_formations/_form.html.twig') }}
+
+    <a href="{{ path('admin_formations_index') }}">back to list</a>
+{% endblock %}

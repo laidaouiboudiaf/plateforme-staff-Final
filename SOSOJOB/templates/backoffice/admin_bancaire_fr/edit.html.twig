@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<title>Edit InfosBancairesF</title>
+
+{% block body %}
+    <h1>Edit InfosBancairesF</h1>
+
+    {{ include('admin_bancaire_fr/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_bancaire_fr_index') }}">back to list</a>
+
+    {{ include('backoffice/admin_bancaire_fr/_delete_form.html.twig') }}
+{% endblock %}
